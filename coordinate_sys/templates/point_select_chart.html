@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Point_select_chart</title>
+</head>
+<body>
+<div>
+    <h2>pygal 图 embed</h2>
+
+    <figure>
+    <embed src="/hello/pygal" type="image/svg+xml">
+    </figure>
+
+</div>
+
+<div>
+    <h2>pygal 图 iframe </h2>
+    <iframe src="/hello/pygal" frameborder="2"></iframe>
+
+</div>
+<div>
+    <h2>pygal 图 object</h2>
+    <object data="/hello/pygal" type="image/svg+xml"></object>
+
+</div>
+
+
+<div>
+    <h2>iframe 标签</h2>
+    <iframe src="/static/test_svg.svg" frameborder="1"></iframe>
+    
+    
+</div>
+
+<div style="background-color:gray; border:1">
+    <h2> object 插入</h2>
+    <object data="/static/test_svg.svg" type="image/svg+xml"></object>
+    
+</div>
+
+<div>
+    <h2>embed 插入</h2>
+    <embed src="/static/test_svg.svg" type="image/svg+xml">
+
+</div>
+
+<div>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+  <polygon points="100,10 40,180 190,60 10,60 160,180"
+  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+</svg>
+
+</div>
+
+
+
+
+</body>
+</html>

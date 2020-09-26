@@ -1,0 +1,164 @@
+import pandas as pd
+import os
+from coordinate_sys.extensions import db
+import matplotlib.pyplot as plt
+from coordinate_sys.logger_class import logger
+import pygal
+from flask import Response
+
+try:
+    from coordinate_sys import root_path
+    temp_rt = 'auto'
+except:
+    root_path='D:\\python\\coordinate_sys\\coordinate_sys'
+    temp_rt = 'manual'
+
+logger.info(temp_rt)
+
+db
+# db_inspector.get_table_names()
+
+def read_data(
+        file_dir=None,
+        header=5,
+        usecols=None):
+    '''
+    读取excel数据,加工成需求的dataframe，
+    列名【特征点号，方向，名义值，VIN号】
+    行按点号显示
+    数据按偏差值
+    '''
+    if file_dir is None:
+        rel_file = 'static/coordinate_datas'
+
+    full_file_dir = os.path.join(root_path, rel_file)
+
+    file_list = list(os.walk(full_file_dir))[0][2]
+    excel_file = [x for x in file_list if (x[-4:]=='xlsx') | (x[-4:]=='xlsm')][0]
+
+    file_path = os.path.join(full_file_dir,excel_file)
+
+    if usecols is None:
+        usecols = list(range(0, 3)) + list(range(104, 204))
+
+    df_0 = pd.read_excel(file_path, sheet_name='Data', header=header,
+                         index_col=None, usecols=usecols)
+    #删除多余4行
+    df_1 = df_0.drop(labels=[0, 1, 2, 3])
+
+    #前三列重命名
+    df_2 = df_1.rename(columns={df_1.columns[0]: '特征点号',
+                                df_1.columns[1]: '方向',
+                                df_1.columns[2]: '名义值'})
+
+    #筛选出有效数据
+    df_3 = df_2[df_2['方向'].isin(['X', 'Y', 'Z'])]
+
+    #补全点号
+    df_3.loc[:'特征点号'].fillna(method='ffill', limit=2, axis=0, inplace=True)
+
+
+    '''
+        前几列的列名无法去掉.1 。
+        for colname in df_40.columns:
+            if colname.endswith('.1'):
+                df_40.rename(columns={colname: colname[:-2]})
+    '''
+
+
+    #转换为偏差值
+    df_40 = df_3
+    for colname in df_40.columns:
+        if colname.startswith('LNB'):
+            df_40.loc[:, colname] -= df_40.loc[:, '名义值']
+    df_4 = df_40
+
+    #设置小数点位数
+
+
+    df = df_4
+    return df
+
+
+from sqlalchemy import create_engine, inspect
+engine = create_engine('mysql+pymysql://coordinate:coordinate_data@127.0.0.1:3306/coordinate_data')
+db_inspector = inspect(engine)
+# df = read_data()
+
+
+
+
+'''class SourceData(db.Model):
+    pass
+    id = db.Column(db.Integer, primery_key=True)
+    for colname in df.columns:
+        if colname.startswith('LNB'):'''
+
+# 数据导入数据库object格式
+df = read_data()
+df.to_sql('coordtemp', engine, schema='coordinate_data', if_exists='replace')
+
+# 数据库读出数据float64格式
+df_readsql = pd.read_sql_table('coordtemp', engine, index_col='index')
+colnames = df_readsql.columns
+
+
+def point_select(df_readsql, point_list=None, direction='X', vin_list=None):
+    '''
+    按照点号，方向，vin 清单，查询出数据
+    :param df_readsql:
+    :param point_list:
+    :param direction:
+    :param vin_list:
+    :return:
+    '''
+    cols = df_readsql.columns
+    df0 = df_readsql
+    df1 = df0.loc[(df0[cols[0]].isin(point_list)) & (df0[cols[1]]==direction), vin_list ]
+
+    df = df1
+    return df
+
+
+temp_vin_list = colnames[0:10]
+temp_point_list = ['KN0001L', 'KN0002L', 'KN0003L']
+select_points = point_select(df_readsql, point_list=temp_point_list, vin_list=temp_vin_list)
+
+
+
+
+def chart_select_point(select_points_df):
+    '''
+    绘图
+    :return:
+    '''
+    select_points = select_points_df
+    select_points['特征点号'] = select_points['特征点号'].map(str) + select_points['方向'].map(str)
+    del select_points['方向']
+    del select_points['名义值']
+
+    select_points = select_points.set_index('特征点号')
+    chart_data = select_points.transpose()
+    plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+    fig1 = plt.figure('测点数据推移图')
+    ax1 = plt.subplot(111)
+
+    chart_xlabel_list = chart_data.index.to_list()  #todo: xlabel 改成6位 短 vin号
+
+    for p in chart_data.columns.to_list():
+        ax1.plot(chart_xlabel_list, chart_data[p])
+        ax1.tick_params(axis='x', labelrotation=45)
+
+    plt.savefig('test_svg1.svg', format='svg')  #todo: 更改为IO流 管道方式，避免文件生产和删除
+
+    # pygal svg图生成
+
+    chart_pygal = pygal.Line(x_label_rotation=30)
+    chart_pygal.x_labels = chart_xlabel_list
+
+    for p in chart_data.columns.to_list():
+        chart_pygal.add(p, chart_data[p])
+
+    return Response(response=chart_pygal.render(), content_type="image/svg+xml")
+
+chart_response = chart_select_point(select_points)
