@@ -1,10 +1,11 @@
 import pandas as pd
 import os
-from coordinate_sys.extensions import db
 import matplotlib.pyplot as plt
 from coordinate_sys.logger_class import logger
 import pygal
 from flask import Response
+from coordinate_sys.extensions import db
+
 
 try:
     from coordinate_sys import root_path
@@ -13,12 +14,19 @@ except:
     root_path='D:\\python\\coordinate_sys\\coordinate_sys'
     temp_rt = 'manual'
 
+
+try:
+    engine = db.engine
+except:
+    from sqlalchemy import create_engine, inspect
+    engine = create_engine('mysql+pymysql://coordinate:coordinate_data@127.0.0.1:3306/coordinate_data')
+db_inspector = inspect(engine)
+
 logger.info(temp_rt)
 
-db
-# db_inspector.get_table_names()
 
-def read_data(
+
+def read_excel_data(
         file_dir=None,
         header=5,
         usecols=None):
@@ -80,27 +88,20 @@ def read_data(
     return df
 
 
-from sqlalchemy import create_engine, inspect
-engine = create_engine('mysql+pymysql://coordinate:coordinate_data@127.0.0.1:3306/coordinate_data')
-db_inspector = inspect(engine)
-# df = read_data()
 
 
 
 
-'''class SourceData(db.Model):
-    pass
-    id = db.Column(db.Integer, primery_key=True)
-    for colname in df.columns:
-        if colname.startswith('LNB'):'''
 
-# 数据导入数据库object格式
-df = read_data()
-df.to_sql('coordtemp', engine, schema='coordinate_data', if_exists='replace')
 
-# 数据库读出数据float64格式
-df_readsql = pd.read_sql_table('coordtemp', engine, index_col='index')
-colnames = df_readsql.columns
+def read_database():
+    try:
+        df_read = pd.read_sql_table('coordtemp', engine, index_col='index')
+    except:
+        df = read_excel_data()
+        df.to_sql('coordtemp', engine, schema='coordinate_data', if_exists='replace')
+        df_read = pd.read_sql_table('coordtemp', engine, index_col='index')
+    return df_read
 
 
 def point_select(df_readsql, point_list=None, direction='X', vin_list=None):
@@ -112,6 +113,11 @@ def point_select(df_readsql, point_list=None, direction='X', vin_list=None):
     :param vin_list:
     :return:
     '''
+
+    if point_list is None:
+        point_list = ['KN0001L', 'KN0002L', 'KN0003L']
+    if vin_list is None:
+        vin_list = ['特征点号', '方向', '名义值'] + ['LNBMCUAK1LT108228', 'LNBMCUAKXLT107904', 'LNBMCUAK5LT106417', 'LNBMCUAK2LT106164', 'LNBMCUAK0LT106096', 'LNBMCUAK9LT105982', 'LNBMCUAK4LT104514', 'LNBMCUAKXLT104744', 'LNBMCUAK5LT101427', 'LNBMCUAK7LT100425']
     cols = df_readsql.columns
     df0 = df_readsql
     df1 = df0.loc[(df0[cols[0]].isin(point_list)) & (df0[cols[1]]==direction), vin_list ]
@@ -120,40 +126,27 @@ def point_select(df_readsql, point_list=None, direction='X', vin_list=None):
     return df
 
 
-temp_vin_list = colnames[0:10]
-temp_point_list = ['KN0001L', 'KN0002L', 'KN0003L']
-select_points = point_select(df_readsql, point_list=temp_point_list, vin_list=temp_vin_list)
-
-
-
 
 def chart_select_point(select_points_df):
     '''
     绘图
     :return:
     '''
-    select_points = select_points_df
-    select_points['特征点号'] = select_points['特征点号'].map(str) + select_points['方向'].map(str)
-    del select_points['方向']
-    del select_points['名义值']
+    select_points1 = select_points_df
+    select_points1['特征点号'] = select_points1['特征点号'].map(str) + select_points1['方向'].map(str)
+    del select_points1['方向']
+    del select_points1['名义值']
 
-    select_points = select_points.set_index('特征点号')
+    select_points2 = select_points1.set_index('特征点号')
+    select_points = select_points2.round(2)
     chart_data = select_points.transpose()
-    plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
-    fig1 = plt.figure('测点数据推移图')
-    ax1 = plt.subplot(111)
 
-    chart_xlabel_list = chart_data.index.to_list()  #todo: xlabel 改成6位 短 vin号
+    chart_xlabel_list1 = chart_data.index.to_list()  #todo: xlabel 改成6位 短 vin号
+    chart_xlabel_list = [x[0:17][-6:] for x in chart_xlabel_list1]
 
-    for p in chart_data.columns.to_list():
-        ax1.plot(chart_xlabel_list, chart_data[p])
-        ax1.tick_params(axis='x', labelrotation=45)
-
-    plt.savefig('test_svg1.svg', format='svg')  #todo: 更改为IO流 管道方式，避免文件生产和删除
 
     # pygal svg图生成
-
-    chart_pygal = pygal.Line(x_label_rotation=30)
+    chart_pygal = pygal.Line(x_label_rotation=-30)
     chart_pygal.x_labels = chart_xlabel_list
 
     for p in chart_data.columns.to_list():
@@ -161,4 +154,6 @@ def chart_select_point(select_points_df):
 
     return Response(response=chart_pygal.render(), content_type="image/svg+xml")
 
-chart_response = chart_select_point(select_points)
+if __name__ == '__main__':
+    df_sl = point_select(read_database())
+    resp = chart_select_point(df_sl)

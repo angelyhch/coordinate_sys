@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %} point_select_chart {% endblock title %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3>
+
+			</h3>
+			<h2>
+				三坐标测点数据分析图
+			</h2>
+			<p>
+				三坐标数据测点在线分析，输入测点号，方向，VIN号
+			</p>
+
+		</div>
+	</div>
+
+
+
+</div>
+
+<div>
+	
+
+	<form action="{{url_for('hello.form_temp')}}" target="_blank" >
+		<div style="border: 1px solid gray;">
+			<h3 class="captal1">用户输入一：</h3><p>选择需要分析对比的VIN号清单</p>
+			{% for vin in vin_list_all %}
+			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
+			</label>
+			{% endfor  %}
+		</div>
+
+		<div style="border: 1px solid gray;">
+			<h3 class="captal1">用户输入二：</h3><p>选择测点数据分析坐标方向X/Y/Z</p>
+			<label>X <input type="radio" value="X" name="direction" checked></label>
+			<label>Y <input type="radio" value="Y" name="direction"></label>
+			<label>Z <input type="radio" value="Z" name="direction"></label>
+		</div>
+
+		<div style="border: 1px solid gray;">
+		<h3 class="captal1">用户输入三：</h3><p>输入分析测点，”XXDDDDX“（X代表字母，D代表数字），同时输入所有需对比测点</p><br>
+			<p>kn0001lkn0002lkn0003lkn0004l</p>
+			<textarea name="point_select"  cols="100" rows="10" placeholder="'KN0001L', 'KN0002L', 'KN0003L'"></textarea>
+
+		</div>
+
+
+
+		<input type="submit" name="submit" value="显示分析图" style="color:red; text-align:center;">
+	</form>
+
+
+
+</div>
+
+
+
+
+{% endblock content %}

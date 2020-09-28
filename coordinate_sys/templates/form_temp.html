@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}  {% endblock title %}
+
+
+{% block content %}
+
+<h2>form_temp</h2>
+
+<h2>vin_list</h2>
+    <p>
+    {{ vin_list }}
+    </p>
+
+<h2>point_select</h2>
+<p>
+    {{ point_select }}
+</p>
+
+<h2>direction</h2>
+<p>{{ direction }}</p>
+
+
+<h2>pygal 图 object</h2>
+<div>
+    {{ chart_data }}
+
+</div>
+
+
+
+{% endblock content %}

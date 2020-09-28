@@ -2,7 +2,7 @@ from flask import Flask
 from .settings import config
 import os
 from .logger_class import logger
-from .blueprints.hello import hello_bp
+from .blueprints.index import hello_bp
 from .extensions import db, bootstrap, toolbar
 
 
