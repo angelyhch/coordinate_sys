@@ -1,2 +1,2 @@
 FLASK_APP=coordinate_sys
-FLASK_ENV=development
+FLASK_ENV=develpment

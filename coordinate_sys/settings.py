@@ -7,6 +7,7 @@ class BaseConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
+
 class DevelopmentConfig(BaseConfig):
 
     name = os.getenv('USER')

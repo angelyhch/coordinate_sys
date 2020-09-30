@@ -26,16 +26,31 @@
 </div>
 
 <div>
-	
 
-	<form action="{{url_for('hello.form_temp')}}" target="_blank" >
-		<div style="border: 1px solid gray;">
-			<h3 class="captal1">用户输入一：</h3><p>选择需要分析对比的VIN号清单</p>
-			{% for vin in vin_list_all %}
-			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
-			</label>
-			{% endfor  %}
+
+
+	<form action="{{url_for('hello.form_temp')}}" method="get" target="_blank" >
+		<div class="container" style="border:1px;">
+			<h3 class="captal1">用户输入一：</h3><p>输入分析测点，”XXDDDDX“（X代表字母，D代表数字），同时输入所有需对比测点</p>
+
+			<div class="row">
+				<div class="col-sm-6">
+
+				<span><strong>输入示例：</strong>kn0001l,kn0002l,kn0003l,kn0004l,kn0005l</span><br>
+				<textarea name="point_select"  cols="60" rows="6" placeholder="'KN0001L', 'KN0002L', 'KN0003L'">
+
+				</textarea>
+
+				</div>
+				<div class="col-sm-6" style="background-color:gray">
+					<p><h6><strong>已输入点号：</strong></h6></p>
+					<p id="show_input_point"></p>
+
+
+				</div>
+			</div>
 		</div>
+
 
 		<div style="border: 1px solid gray;">
 			<h3 class="captal1">用户输入二：</h3><p>选择测点数据分析坐标方向X/Y/Z</p>
@@ -45,15 +60,15 @@
 		</div>
 
 		<div style="border: 1px solid gray;">
-		<h3 class="captal1">用户输入三：</h3><p>输入分析测点，”XXDDDDX“（X代表字母，D代表数字），同时输入所有需对比测点</p><br>
-			<p>kn0001lkn0002lkn0003lkn0004l</p>
-			<textarea name="point_select"  cols="100" rows="10" placeholder="'KN0001L', 'KN0002L', 'KN0003L'"></textarea>
-
+			<h3 class="captal1">用户输入一：</h3><p>选择需要分析对比的VIN号清单</p>
+			{% for vin in vin_list_all %}
+			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
+			</label>
+			{% endfor  %}
 		</div>
 
-
-
 		<input type="submit" name="submit" value="显示分析图" style="color:red; text-align:center;">
+
 	</form>
 
 

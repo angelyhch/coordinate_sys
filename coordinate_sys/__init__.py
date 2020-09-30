@@ -16,7 +16,7 @@ def register_shell_context(app):
 
 
 def register_blueprints(app):
-    app.register_blueprint(hello_bp, url_prefix='/hello')
+    app.register_blueprint(hello_bp)
 
 
 def create_app(config_name=None):
