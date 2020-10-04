@@ -1,2 +1,3 @@
 FLASK_APP=coordinate_sys
 FLASK_ENV=develpment
+FLASK_DEBUG=True

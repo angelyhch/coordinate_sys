@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-
+from coordinate_sys.form_temp import CheckBox
 import coordinate_sys.models as md
 import re
 
@@ -18,13 +18,20 @@ def hello():
 
 
 
-@hello_bp.route('/chart_show')
-def chart_show():
-    return render_template('chart_show.html')
-
-
-@hello_bp.route('/form_temp')
+@hello_bp.route('/form_temp', methods=['get', 'post'])
 def form_temp():
+    form = CheckBox()
+    if form.validate_on_submit():
+        a = form.aaaa.data
+        b = form.bbbb.data
+        c = form.cccc.name
+        d = form.dddd.name
+        return render_template('form_temp.html', form=form, a=a, b=b, c=c, d=d)
+    return render_template('form_temp.html', form=form)
+
+
+@hello_bp.route('/chart_fig', methods=['get', 'post'])
+def chart_fig():
     vin_list1 = request.values.getlist('vin_list')
 
     point_input = request.values.get("point_select")

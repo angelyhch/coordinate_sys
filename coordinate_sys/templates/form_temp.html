@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
 
 {% block title %}  {% endblock title %}
 
@@ -6,6 +7,10 @@
 {% block content %}
 
 <h2>form_temp</h2>
+{{ render_form(form) }}
+
+{{ a,b,c,d }}
+
 
 <h2>vin_list</h2>
     <p>
