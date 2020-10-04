@@ -37,7 +37,7 @@
 				<div class="col-sm-6">
 
 				<span><strong>输入示例：</strong>kn0001l,kn0002l,kn0003l,kn0004l,kn0005l</span><br>
-				<textarea name="point_select"  cols="60" rows="6" placeholder="'KN0001L', 'KN0002L', 'KN0003L'">
+				<textarea name="point_select"  cols="60" rows="6" placeholder="'KN0001L', 'KN0002L', 'KN0003L'" >
 
 				</textarea>
 
@@ -60,15 +60,20 @@
 		</div>
 
 		<div style="border: 1px solid gray;">
-			<h3 class="captal1">用户输入一：</h3><p>选择需要分析对比的VIN号清单</p>
+			<h3 class="captal1">用户输入三：</h3><p>选择需要分析对比的VIN号清单</p>
 			{% for vin in vin_list_all %}
 			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
 			</label>
 			{% endfor  %}
+			<br>
+
+			<input id="btn_select_op1" value="全选" type="button">
+			<input id="btn_select_op2" value="全不选" type="button"><br>
+			<p><input id="btn_select_op3" value="自定义数量" type="button"><input type="number" value=20 id="select_num"></p>
 		</div>
 
 		<input type="submit" name="submit" value="显示分析图" style="color:red; text-align:center;">
-
+		<br>
 	</form>
 
 
@@ -76,6 +81,43 @@
 </div>
 
 
-
-
 {% endblock content %}
+
+{% block scripts %}
+	{{ super() }}
+
+
+	<script>
+	$(document).ready(function(){
+<!--		全选按钮-->
+		$("#btn_select_op1").click(function(){
+			var vins = $("[name = 'vin_list']");
+
+			for(var i=0; i < vins.length; i++){
+			vins[i]["checked"]=true;
+			};
+
+		});
+
+<!--		全不选按钮-->
+		$("#btn_select_op2").on("click", function(){
+			var vins = $("[name = 'vin_list']");
+
+			for(var i=0; i < vins.length; i++){
+			vins[i]["checked"]=false;
+			};
+		});
+
+<!--		选数量,默认20-->
+		$("#btn_select_op3").bind("click", function(){
+			var vins = $("[name = 'vin_list']");
+			select_num = Number($("#select_num").val());
+			for(var i=0; i < select_num; i++){
+			vins[i]["checked"]=true;
+			};
+		});
+	});
+	</script>
+
+
+{% endblock scripts %}
