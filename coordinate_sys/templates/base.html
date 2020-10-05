@@ -22,7 +22,17 @@
   <body{% block body_attribs %}{% endblock body_attribs %}>
     {% block body -%}
     {% block navbar %}
+    <div>
+    <nav>
+      <a href="{{ url_for('hello.hello') }}">测点选择|</a>
+      <a href="{{ url_for('hello.upload_data') }}">数据库更新|</a>
+      <a href="temp">temp</a>
+    </nav>
+    </div>
+
     {%- endblock navbar %}
+<br>
+
     {% block content -%}
     {%- endblock content %}
 

@@ -8,7 +8,6 @@ from coordinate_sys.extensions import db
 
 try:
     from coordinate_sys import root_path
-
     temp_rt = 'auto'
 except:
     root_path = 'D:\\python\\coordinate_sys\\coordinate_sys'
@@ -18,22 +17,18 @@ try:
     engine = db.engine
 except:
     from sqlalchemy import create_engine, inspect
-
     engine = create_engine('mysql+pymysql://coordinate:coordinate_data@127.0.0.1:3306/coordinate_data')
+
 db_inspector = inspect(engine)
 
 logger.info(temp_rt)
 
 
-def read_excel_data(
-        file_dir=None,
-        header=5,
-        usecols=None):
+def get_file_path(file_dir=None):
     '''
-    读取excel数据,加工成需求的dataframe，
-    列名【特征点号，方向，名义值，VIN号】
-    行按点号显示
-    数据按偏差值
+    在static文件自动查找data数据地址
+    :param file_dir:
+    :return:
     '''
     if file_dir is None:
         rel_file = 'static/coordinate_datas'
@@ -44,6 +39,21 @@ def read_excel_data(
     excel_file = [x for x in file_list if (x[-4:] == 'xlsx') | (x[-4:] == 'xlsm')][0]
 
     file_path = os.path.join(full_file_dir, excel_file)
+    return file_path
+
+def read_excel_data(
+        file_path=None,
+        header=5,
+        usecols=None):
+    '''
+    读取excel数据,加工成需求的dataframe，
+    列名【特征点号，方向，名义值，VIN号】
+    行按点号显示
+    数据按偏差值
+    '''
+
+    if file_path is None:
+        file_path = get_file_path()
 
     if usecols is None:
         usecols = list(range(0, 3)) + list(range(104, 204))

@@ -33,7 +33,7 @@ def create_app(config_name=None):
     # 注册app信息
     register_shell_context(app)
     register_blueprints(app)
-
+    app.config['UPLOAD_PATH'] = 'D:\\python\\coordinate_sys\\coordinate_sys\\static\\data_temp'
     return app
 
 

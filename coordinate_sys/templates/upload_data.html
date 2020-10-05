@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block title %} upload_data {% endblock title %}
+
+
+{% block content %}
+
+<h2>upload_data</h2>
+<div>
+{{ render_form(form) }}
+    <br>
+    <br>
+    <br>
+    {% for msg in get_flashed_messages() %}
+    <div>
+    <strong><p>{{ msg }}</p></strong>
+    </div>
+    {% endfor %}
+
+
+
+</div>
+
+
+{% endblock content %}
