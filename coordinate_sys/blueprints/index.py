@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, current_app, flash, get_flashed_messages
+from flask import redirect, Blueprint, url_for, render_template, request, current_app, flash, get_flashed_messages
 from coordinate_sys.form_temp import UpLoadFile
 import coordinate_sys.models as md
 import re
@@ -21,20 +21,21 @@ def upload_data():
     upload_form = UpLoadFile()
 
     if upload_form.validate_on_submit():
-        file_req = request.files.get("upload_file")
-        file_ext = os.path.splitext(file_req.filename)[1]
-        file_save_name = 'data'+file_ext
-        full_file_path_name = os.path.join(app.config['UPLOAD_PATH'], file_save_name)
-        file_req.save(full_file_path_name)
-        last_modify_time1 = os.path.getmtime(full_file_path_name)
-        last_modify_time = datetime.fromtimestamp(last_modify_time1)
-        flash(f'upload success at {last_modify_time}')
-
-        df = read_excel_data(file_path=full_file_path_name)
-        refresh_database(df)
-
-        return render_template('upload_data.html', form=upload_form, file_req=file_req)
-
+        if upload_form.upload_password.data == 'gyz':
+            file_req = request.files.get("upload_file")
+            file_ext = os.path.splitext(file_req.filename)[1]
+            file_save_name = 'data'+file_ext
+            full_file_path_name = os.path.join(app.config['UPLOAD_PATH'], file_save_name)
+            file_req.save(full_file_path_name)
+            last_modify_time1 = os.path.getmtime(full_file_path_name)
+            last_modify_time = datetime.fromtimestamp(last_modify_time1)
+            flash(f'upload success at {last_modify_time}')
+            df = read_excel_data(file_path=full_file_path_name)
+            refresh_database(df)
+            return render_template('upload_data.html', form=upload_form, file_req=file_req)
+        else:
+            flash('密码错误！请输入正确口令！')
+            return redirect(url_for('hello.upload_data'))
     return render_template('upload_data.html', form=upload_form)
 
 

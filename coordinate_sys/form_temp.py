@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, SelectField, TextAreaField, BooleanField
+from wtforms import StringField, SubmitField, SelectField, TextAreaField, BooleanField, PasswordField
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 
@@ -15,5 +15,6 @@ class CheckBox(FlaskForm):
 
 class UpLoadFile(FlaskForm):
     upload_file = FileField('上传最新三坐标data', validators=[FileRequired(), FileAllowed(['xlsx', 'xlsm'])],
-                            render_kw={"accept":".xlsx, .xlsm"})
+                            render_kw={"accept": ".xlsx, .xlsm"})
+    upload_password = PasswordField('上传验证口令')
     submit = SubmitField('确认上传')

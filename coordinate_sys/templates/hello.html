@@ -44,9 +44,8 @@
 
 				</div>
 				<div class="col-sm-6" style="background-color:gray">
-					<p><h6><strong>已输入点号：</strong></h6></p>
-					<p id="show_input_point"></p>
-
+					<h6><strong>已输入点号：</strong><input type="button" id="parse_point" value="解析测点"></h6>
+					<section id="show_parse_point" style="color:yellow;"></section>
 
 				</div>
 			</div>
@@ -90,6 +89,15 @@
 
 	<script>
 	$(document).ready(function(){
+<!--		测点解析-->
+		$("#parse_point").click(function(){
+			var input_text = $("textarea[name='point_select']").val().toUpperCase();
+			var parse_point = input_text.match(/[A-Z]{2}\d{4}[A-Z]/gi)
+			$("#show_parse_point").text(parse_point)
+
+
+		});
+
 <!--		全选按钮-->
 		$("#btn_select_op1").click(function(){
 			var vins = $("[name = 'vin_list']");
