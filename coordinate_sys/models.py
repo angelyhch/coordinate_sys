@@ -171,12 +171,16 @@ def warning_point():
             x[4] > max(x[6:15])) + int(x[5] < min(x[6:15])) + int(x[5] > max(x[6:15])), axis=1)
     df_warn1 = df[df['warn'] == 3]
     # 近3台均值与前9台均值差异
-    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[3:6] - mean(x[6:15]))), axis=1)
+    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[3:6]) - mean(x[6:15])), axis=1)
+    df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[3:6]) - mean(x[6:15]), axis=1)
     df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
     # 更改sort_col 列位置
     temp = df_warn2.pop('sort_col')
     df_warn2.insert(2, 'sort_col', temp)
-    df_warn = df_warn2.iloc[:, :16]
+    # 更改均值差异列位置
+    temp = df_warn2.pop('均值差异')
+    df_warn2.insert(2, '均值差异', temp)
+    df_warn = df_warn2.iloc[:, :17]
     return df_warn
 
 
