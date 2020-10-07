@@ -108,6 +108,7 @@ def read_database():
     return df_read
 
 
+
 def point_select(df_readsql, point_list=None, direction='X', vin_list=None):
     '''
     按照点号，方向，vin 清单，查询出数据

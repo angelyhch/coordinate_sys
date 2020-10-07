@@ -1,4 +1,4 @@
-from flask import redirect, Blueprint, url_for, render_template, request, current_app, flash, get_flashed_messages
+from flask import redirect, Blueprint, url_for, render_template, request, flash
 from coordinate_sys.form_temp import UpLoadFile
 import coordinate_sys.models as md
 import re
@@ -56,3 +56,14 @@ def chart_fig():
     chart_points = md.point_select(df, point_list=point_select, direction=direction, vin_list=vin_list)
     chart_response = md.chart_select_point(select_points_df=chart_points)
     return chart_response
+
+
+@hello_bp.route('/show_data')
+def show_data():
+    df = md.read_database()
+    cols = df.columns
+    # 改列名为6位数字
+    newcols = list(cols[:3]) + [x[:17][-6:] for x in cols[3:]]
+    df.columns = newcols
+    data_html = df.to_html()
+    return render_template('show_data.html', data_html=data_html)
