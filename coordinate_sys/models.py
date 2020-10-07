@@ -21,7 +21,7 @@ except:
 
 db_inspector = inspect(engine)
 
-logger.info(temp_rt)
+# logger.info(temp_rt)
 
 
 def get_file_path(file_dir=None):
@@ -151,7 +151,7 @@ def chart_select_point(select_points_df):
     chart_xlabel_list = [x[0:17][-6:] for x in chart_xlabel_list1]
 
     # pygal svg图生成
-    chart_pygal = pygal.Line(x_label_rotation=-30)
+    chart_pygal = pygal.Line(x_label_rotation=-90)
     chart_pygal.x_labels = chart_xlabel_list
 
     for p in chart_data.columns.to_list():
@@ -159,7 +159,7 @@ def chart_select_point(select_points_df):
 
     return Response(response=chart_pygal.render(), content_type="image/svg+xml")
 
-
-if __name__ == '__main__':
-    df_sl = point_select(read_database())
-    resp = chart_select_point(df_sl)
+#
+# if __name__ == '__main__':
+#     df_sl = point_select(read_database())
+#     resp = chart_select_point(df_sl)

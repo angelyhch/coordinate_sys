@@ -1,9 +1,10 @@
-from flask import Flask
-from .settings import config
+from flask import Flask, request
+from coordinate_sys.settings import config
 import os
-from .logger_class import logger
-from .blueprints.index import hello_bp
-from .extensions import db, bootstrap, toolbar
+from coordinate_sys.logger_class import logger
+from coordinate_sys.blueprints.index import hello_bp
+from coordinate_sys.extensions import db, bootstrap, toolbar
+from datetime import datetime
 
 
 def register_shell_context(app):
@@ -37,8 +38,15 @@ def create_app(config_name=None):
     return app
 
 
+
 app = create_app()
 root_path = app.root_path
 
 
 
+@app.before_request
+def log_ip_url():
+    ip = request.remote_addr
+    url = request.url
+
+    logger.info(f'\nip：【{ip}】; url：【{url}】')
