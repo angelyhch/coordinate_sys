@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-from coordinate_sys.logger_class import logger
+from numpy import mean
 import pygal
 from flask import Response
 from coordinate_sys.extensions import db
@@ -160,7 +160,26 @@ def chart_select_point(select_points_df):
 
     return Response(response=chart_pygal.render(), content_type="image/svg+xml")
 
-#
+
+def warning_point():
+    df = read_database()
+    cols = df.columns
+    df.columns = list(cols[:3]) + [x[:17][-6:] for x in cols[3:]]
+    # 近3台 与前9台数据比较
+    df['warn'] = df.apply(
+        lambda x: int(x[3] < min(x[6:15])) + int(x[3] > max(x[6:15])) + int(x[4] < min(x[6:15])) + int(
+            x[4] > max(x[6:15])) + int(x[5] < min(x[6:15])) + int(x[5] > max(x[6:15])), axis=1)
+    df_warn1 = df[df['warn'] == 3]
+    # 近3台均值与前9台均值差异
+    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[3:6] - mean(x[6:15]))), axis=1)
+    df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
+    # 更改sort_col 列位置
+    temp = df_warn2.pop('sort_col')
+    df_warn2.insert(2, 'sort_col', temp)
+    df_warn = df_warn2.iloc[:, :16]
+    return df_warn
+
+
 # if __name__ == '__main__':
 #     df_sl = point_select(read_database())
 #     resp = chart_select_point(df_sl)

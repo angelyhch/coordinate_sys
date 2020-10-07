@@ -4,6 +4,7 @@ import coordinate_sys.models as md
 import re
 import os
 from datetime import datetime
+from numpy import mean
 
 hello_bp = Blueprint('hello', __name__)
 
@@ -11,7 +12,9 @@ hello_bp = Blueprint('hello', __name__)
 @hello_bp.route('/')
 def hello():
     vin_list_all = md.read_database().columns.to_list()[3:]
-    return render_template('hello.html', vin_list_all=vin_list_all)
+    df_warn = md.warning_point()
+    data_html = df_warn.to_html()
+    return render_template('hello.html', vin_list_all=vin_list_all, data_html=data_html)
 
 
 @hello_bp.route('/upload_data', methods=['get', 'post'])
@@ -67,3 +70,11 @@ def show_data():
     df.columns = newcols
     data_html = df.to_html()
     return render_template('show_data.html', data_html=data_html)
+
+
+@hello_bp.route('/warning_point')
+def warning_point():
+    df_warn = md.warning_point()
+    data_html = df_warn.to_html()
+    return render_template('warning_point.html', data_html=data_html)
+
