@@ -175,12 +175,13 @@ def warning_point():
     df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[3:6]) - mean(x[6:15]), axis=1)
     df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
     # 更改sort_col 列位置
-    temp = df_warn2.pop('sort_col')
-    df_warn2.insert(2, 'sort_col', temp)
+    # temp = df_warn2.pop('sort_col')
+    # df_warn2.insert(2, 'sort_col', temp)
     # 更改均值差异列位置
     temp = df_warn2.pop('均值差异')
     df_warn2.insert(2, '均值差异', temp)
     df_warn = df_warn2.iloc[:, :17]
+    df_warn = df_warn.round(2)
     return df_warn
 
 
