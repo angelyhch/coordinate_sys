@@ -94,6 +94,26 @@ def read_excel_data(
     return df
 
 
+def read_point_name(file_path=None):
+    if file_path is None:
+        file_path = get_file_path()
+
+    df1 = pd.read_excel(file_path, sheet_name=list(range(5, 40)), header=5)
+    point_name_dict = {}
+    for df in df1:
+        df_t1 = df1[df]
+        df_t2 = df_t1.loc[:, ['编号 Laber', '功能     Function']]
+        df_t3 = df_t2.dropna()
+        df_t3.columns = ['测点编号', '测点功能']
+        df_t3['测点查询号'] = df_t3.apply(lambda x: x[0][:6], axis=1)
+        df_t3.pop('测点编号')
+        df_dict = dict(zip(df_t3['测点查询号'], df_t3['测点功能']))
+        point_name_dict.update(df_dict)
+
+    return point_name_dict  #todo:待调试
+
+
+
 def refresh_database(df):
     df.to_sql('coordtemp', engine, schema='coordinate_data', if_exists='replace')
 
