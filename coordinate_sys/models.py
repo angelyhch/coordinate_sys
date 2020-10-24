@@ -31,7 +31,7 @@ def get_file_path(file_dir=None):
     :return:
     '''
     if file_dir is None:
-        rel_file = 'static/coordinate_datas'
+        rel_file = 'static\\coordinate_datas'
 
     full_file_dir = os.path.join(root_path, rel_file)
 
@@ -105,9 +105,9 @@ def read_point_name(file_path=None):
         df_t2 = df_t1.loc[:, ['编号 Laber', '功能     Function']]
         df_t3 = df_t2.dropna()
         df_t3.columns = ['测点编号', '测点功能']
-        df_t3['测点查询号'] = df_t3.apply(lambda x: x[0][:6], axis=1)
-        df_t3.pop('测点编号')
-        df_dict = dict(zip(df_t3['测点查询号'], df_t3['测点功能']))
+        # df_t3['测点查询号'] = df_t3.apply(lambda x: x[0][:6], axis=1)
+        # df_t3.pop('测点编号')
+        df_dict = dict(zip([x[:6] for x in df_t3['测点编号'] if len(x) == 7], df_t3['测点功能']))
         point_name_dict.update(df_dict)
 
     return point_name_dict  #todo:待调试

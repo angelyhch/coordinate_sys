@@ -11,8 +11,11 @@ hello_bp = Blueprint('hello', __name__)
 
 @hello_bp.route('/')
 def hello():
+    point_name_dict = md.read_point_name()
     vin_list_all = md.read_database().columns.to_list()[3:]
     df_warn = md.warning_point()
+    df_warn.insert(2, '测点功能', df_warn['特征点号'])
+    df_warn['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_warn['特征点号'])]
     data_html = df_warn.to_html()
     return render_template('hello.html', vin_list_all=vin_list_all, data_html=data_html)
 
@@ -64,10 +67,13 @@ def chart_fig():
 @hello_bp.route('/show_data')
 def show_data():
     df = md.read_database()
+    point_name_dict = md.read_point_name()
     cols = df.columns
     # 改列名为6位数字
     newcols = list(cols[:3]) + [x[:17][-6:] for x in cols[3:]]
     df.columns = newcols
+    df.insert(2, '测点功能', df['特征点号'])
+    df['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df['特征点号'])]
     data_html = df.to_html()
     return render_template('show_data.html', data_html=data_html)
 
