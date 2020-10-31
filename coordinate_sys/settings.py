@@ -6,6 +6,13 @@ class BaseConfig(object):
     SECRET_KEY = os.getenv('SECRET_KEY', 'secret_key')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    MAIL_SERVER = os.getenv('MAIL_SERVER')
+    MAIL_PORT = 25
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.getenv('MAIL_USERNAME')
+    MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = ('auto-mail-sender', MAIL_USERNAME)
+
 
 
 class DevelopmentConfig(BaseConfig):

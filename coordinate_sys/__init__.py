@@ -3,17 +3,19 @@ from coordinate_sys.settings import config
 import os
 from coordinate_sys.logger_class import logger
 from coordinate_sys.blueprints.index import hello_bp
-from coordinate_sys.extensions import db, bootstrap, toolbar
-from datetime import datetime
+from coordinate_sys.extensions import db, bootstrap, toolbar, mail
 
+#todo:待确认shell环境设置
 
 def register_shell_context(app):
     @app.shell_context_processor
     def make_shell_context():
-        from sqlalchemy import create_engine, inspect
-        engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
-        db_inspector = inspect(engine)
-        return dict(db=db, app=app, db_inspector=db_inspector)
+        # from sqlalchemy import create_engine, inspect
+        # engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'])
+        # db_inspector = inspect(engine)
+        from coordinate_sys.emails import send_mail
+
+        return dict(db=db, app=app, send_mail=send_mail)
 
 
 def register_blueprints(app):
@@ -30,13 +32,13 @@ def create_app(config_name=None):
     db.init_app(app)
     toolbar.init_app(app)
     bootstrap.init_app(app)
+    mail.init_app(app)
 
     # 注册app信息
     register_shell_context(app)
     register_blueprints(app)
     app.config['UPLOAD_PATH'] = 'D:\\python\\coordinate_sys\\coordinate_sys\\static\\data_temp'
     return app
-
 
 
 app = create_app()

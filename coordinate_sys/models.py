@@ -88,8 +88,9 @@ def read_excel_data(
             df_40.loc[:, colname] -= df_40.loc[:, '名义值']
     df_4 = df_40
 
-    # 设置小数点位数
-
+    point_name_dict = read_point_name()
+    df_4.insert(2, '测点功能', df_4['特征点号'])
+    df_4['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_4['特征点号'])]
     df = df_4
     return df
 
@@ -105,12 +106,10 @@ def read_point_name(file_path=None):
         df_t2 = df_t1.loc[:, ['编号 Laber', '功能     Function']]
         df_t3 = df_t2.dropna()
         df_t3.columns = ['测点编号', '测点功能']
-        # df_t3['测点查询号'] = df_t3.apply(lambda x: x[0][:6], axis=1)
-        # df_t3.pop('测点编号')
         df_dict = dict(zip([x[:6] for x in df_t3['测点编号'] if len(x) == 7], df_t3['测点功能']))
         point_name_dict.update(df_dict)
 
-    return point_name_dict  #todo:待调试
+    return point_name_dict
 
 
 
@@ -163,6 +162,7 @@ def chart_select_point(select_points_df):
     select_points1['特征点号'] = select_points1['特征点号'].map(str) + select_points1['方向'].map(str)
     del select_points1['方向']
     del select_points1['名义值']
+    del select_points1['测点功能']
 
     select_points2 = select_points1.set_index('特征点号')
     select_points = select_points2.round(2)
@@ -194,10 +194,7 @@ def warning_point():
     df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[3:6]) - mean(x[6:15])), axis=1)
     df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[3:6]) - mean(x[6:15]), axis=1)
     df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
-    # 更改sort_col 列位置
-    # temp = df_warn2.pop('sort_col')
-    # df_warn2.insert(2, 'sort_col', temp)
-    # 更改均值差异列位置
+
     temp = df_warn2.pop('均值差异')
     df_warn2.insert(2, '均值差异', temp)
     df_warn = df_warn2.iloc[:, :17]
