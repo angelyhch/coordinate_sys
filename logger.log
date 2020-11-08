@@ -190,3 +190,59 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_v
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
 ¡¾INFO¡¿:2020-10-24T18:56:30>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6619954511716473¡¿
+¡¾INFO¡¿:2020-11-08T10:26:18>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T10:51:43>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/css/bootstrap.css¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/js/bootstrap.min.js¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/js/jquery-3.2.1.slim.min.js¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.js¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/toolbar.js¡¿
+¡¾INFO¡¿:2020-11-08T10:52:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.tablesorter.js¡¿
+¡¾INFO¡¿:2020-11-08T10:52:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6721841240516828¡¿
+¡¾INFO¡¿:2020-11-08T10:52:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/tick-red.png¡¿
+¡¾INFO¡¿:2020-11-08T10:52:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/favicon.ico¡¿
+¡¾INFO¡¿:2020-11-08T10:58:30>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T10:59:05>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.964533479231553¡¿
+¡¾INFO¡¿:2020-11-08T11:16:51>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T11:17:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T11:18:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.19364111589350497¡¿
+¡¾INFO¡¿:2020-11-08T11:18:56>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T11:19:36>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.5972295068863507¡¿
+¡¾INFO¡¿:2020-11-08T11:20:31>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/warning_point¡¿
+¡¾INFO¡¿:2020-11-08T11:20:33>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.038999127101759345¡¿
+¡¾INFO¡¿:2020-11-08T11:20:43>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/show_data¡¿
+¡¾INFO¡¿:2020-11-08T11:20:54>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.08327759928849066¡¿
+¡¾INFO¡¿:2020-11-08T11:22:28>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/chart_fig¡¿
+¡¾INFO¡¿:2020-11-08T11:25:01>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-08T11:25:38>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9599747193130728¡¿
+¡¾INFO¡¿:2020-11-08T11:25:51>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/indicator.png¡¿
+¡¾INFO¡¿:2020-11-08T11:25:51>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/close.png¡¿
+¡¾INFO¡¿:2020-11-08T11:26:06>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/close_hover.png¡¿

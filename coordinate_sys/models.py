@@ -82,11 +82,11 @@ def read_excel_data(
     '''
 
     # 转换为偏差值
-    df_40 = df_3
+    df_40 = df_3.copy()
     for colname in df_40.columns:
         if colname.startswith('LNB'):
             df_40.loc[:, colname] -= df_40.loc[:, '名义值']
-    df_4 = df_40
+    df_4 = df_40.copy()
 
     point_name_dict = read_point_name()
     df_4.insert(2, '测点功能', df_4['特征点号'])
@@ -181,23 +181,28 @@ def chart_select_point(select_points_df):
     return Response(response=chart_pygal.render(), content_type="image/svg+xml")
 
 
-def warning_point():
+def warning_point(header_cols=4, new_cols=3, old_cols=9):
     df = read_database()
     cols = df.columns
-    df.columns = list(cols[:3]) + [x[:17][-6:] for x in cols[3:]]
-    # 近3台 与前9台数据比较
+    df.columns = list(cols[:header_cols]) + [x[:17][-6:] for x in cols[header_cols:]]
+    # 近new_cols台 与前old_cols台数据比较
     df['warn'] = df.apply(
-        lambda x: int(x[3] < min(x[6:15])) + int(x[3] > max(x[6:15])) + int(x[4] < min(x[6:15])) + int(
-            x[4] > max(x[6:15])) + int(x[5] < min(x[6:15])) + int(x[5] > max(x[6:15])), axis=1)
+        lambda x: int(x[header_cols] < min(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
+                  int(x[header_cols] > max(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
+                  int(x[header_cols+1] < min(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
+                  int(x[header_cols+1] > max(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
+                  int(x[header_cols+2] < min(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
+                  int(x[header_cols+2] > max(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]))\
+                    , axis=1)
     df_warn1 = df[df['warn'] == 3]
-    # 近3台均值与前9台均值差异
-    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[3:6]) - mean(x[6:15])), axis=1)
-    df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[3:6]) - mean(x[6:15]), axis=1)
+    # 近new_cols台均值与前old_cols台均值差异
+    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])), axis=1)
+    df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]), axis=1)
     df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
 
     temp = df_warn2.pop('均值差异')
     df_warn2.insert(2, '均值差异', temp)
-    df_warn = df_warn2.iloc[:, :17]
+    df_warn = df_warn2.iloc[:, :(header_cols + new_cols + old_cols)]
     df_warn = df_warn.round(2)
     return df_warn
 

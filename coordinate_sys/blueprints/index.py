@@ -10,12 +10,12 @@ hello_bp = Blueprint('hello', __name__)
 
 
 @hello_bp.route('/')
-def hello():
+def hello(header_cols=4):
     point_name_dict = md.read_point_name()
-    vin_list_all = md.read_database().columns.to_list()[3:]
+    vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()
-    df_warn.insert(2, '测点功能', df_warn['特征点号'])
-    df_warn['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_warn['特征点号'])]
+    # df_warn.insert(2, '测点功能', df_warn['特征点号'])
+    # df_warn['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_warn['特征点号'])]
     data_html = df_warn.to_html()
     return render_template('hello.html', vin_list_all=vin_list_all, data_html=data_html)
 
@@ -57,23 +57,23 @@ def chart_fig():
     direction = request.values.get('direction')
 
     df = md.read_database()
-    column_head3 = ['特征点号', '方向', '名义值']
-    vin_list = column_head3 + vin_list1
+    column_head4 = ['特征点号', '方向', '测点功能', '名义值']
+    vin_list = column_head4 + vin_list1
     chart_points = md.point_select(df, point_list=point_select, direction=direction, vin_list=vin_list)
     chart_response = md.chart_select_point(select_points_df=chart_points)
     return chart_response
 
 
 @hello_bp.route('/show_data')
-def show_data():
+def show_data(header_cols=4):
     df = md.read_database()
-    point_name_dict = md.read_point_name()
+    # point_name_dict = md.read_point_name()
     cols = df.columns
     # 改列名为6位数字
-    newcols = list(cols[:3]) + [x[:17][-6:] for x in cols[3:]]
+    newcols = list(cols[:header_cols]) + [x[:17][-6:] for x in cols[header_cols:]]
     df.columns = newcols
-    df.insert(2, '测点功能', df['特征点号'])
-    df['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df['特征点号'])]
+    # df.insert(2, '测点功能', df['特征点号'])
+    # df['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df['特征点号'])]
     data_html = df.to_html()
     return render_template('show_data.html', data_html=data_html)
 
