@@ -4,7 +4,6 @@ import coordinate_sys.models as md
 import re
 import os
 from datetime import datetime
-from numpy import mean
 
 hello_bp = Blueprint('hello', __name__)
 
@@ -17,7 +16,7 @@ def hello(header_cols=4):
     # df_warn.insert(2, '测点功能', df_warn['特征点号'])
     # df_warn['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_warn['特征点号'])]
     data_html = df_warn.to_html()
-    return render_template('hello.html', vin_list_all=vin_list_all, data_html=data_html)
+    return render_template('hello/hello.html', vin_list_all=vin_list_all, data_html=data_html)
 
 
 @hello_bp.route('/upload_data', methods=['get', 'post'])
@@ -38,11 +37,11 @@ def upload_data():
             flash(f'upload success at {last_modify_time}')
             df = read_excel_data(file_path=full_file_path_name)
             refresh_database(df)
-            return render_template('upload_data.html', form=upload_form, file_req=file_req)
+            return render_template('hello/upload_data.html', form=upload_form, file_req=file_req)
         else:
             flash('密码错误！请输入正确口令！')
             return redirect(url_for('hello.upload_data'))
-    return render_template('upload_data.html', form=upload_form)
+    return render_template('hello/upload_data.html', form=upload_form)
 
 
 @hello_bp.route('/chart_fig', methods=['get', 'post'])
@@ -75,12 +74,12 @@ def show_data(header_cols=4):
     # df.insert(2, '测点功能', df['特征点号'])
     # df['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df['特征点号'])]
     data_html = df.to_html()
-    return render_template('show_data.html', data_html=data_html)
+    return render_template('hello/show_data.html', data_html=data_html)
 
 
 @hello_bp.route('/warning_point')
 def warning_point():
     df_warn = md.warning_point()
     data_html = df_warn.to_html()
-    return render_template('warning_point.html', data_html=data_html)
+    return render_template('hello/warning_point.html', data_html=data_html)
 
