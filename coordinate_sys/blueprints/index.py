@@ -10,7 +10,7 @@ hello_bp = Blueprint('hello', __name__)
 
 
 @hello_bp.route('/')
-@cache.cached(timeout=60*5)
+@cache.cached(timeout=60*30)
 def point_select(header_cols=4):
     point_name_dict = md.read_point_name()
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
