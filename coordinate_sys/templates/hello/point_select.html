@@ -1,12 +1,138 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Point_select</title>
-</head>
-<body>
+{% block title %} point_select_chart {% endblock title %}
 
 
-</body>
-</html>
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<h3>
+
+			</h3>
+			<h2>
+				三坐标测点数据分析图
+			</h2>
+			<p>
+				三坐标数据测点在线分析，输入测点号，方向，VIN号
+			</p>
+			<hr>
+
+		</div>
+	</div>
+
+
+
+</div>
+
+<div>
+
+
+
+
+	<form action="{{url_for('hello.chart_fig')}}" method="post" target="_blank" >
+		<div class="container" style="border:1px;">
+			<h3 class="captal1">用户输入一：</h3><p>输入分析测点，”XXDDDDX“（X代表字母，D代表数字），同时输入所有需对比测点</p>
+
+			<div class="row">
+				<div class="col-sm-6">
+
+				<span><strong>输入示例：</strong>kn0001l,kn0002l,kn0003l,kn0004l,kn0005l</span><br>
+				<textarea name="point_select"  cols="60" rows="6" placeholder="'KN0001L', 'KN0002L', 'KN0003L'" >
+
+				</textarea>
+
+				</div>
+				<div class="col-sm-6" style="background-color:gray">
+					<h6><strong>已输入点号：</strong><input type="button" id="parse_point" value="解析测点"></h6>
+					<section id="show_parse_point" style="color:yellow;"></section>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div style="border: 1px solid gray;">
+			<h3 class="captal1">用户输入二：</h3><p>选择测点数据分析坐标方向X/Y/Z</p>
+			<label>X <input type="radio" value="X" name="direction" checked></label>
+			<label>Y <input type="radio" value="Y" name="direction"></label>
+			<label>Z <input type="radio" value="Z" name="direction"></label>
+		</div>
+
+		<div style="border: 1px solid gray;">
+			<h3 class="captal1">用户输入三：</h3><p>选择需要分析对比的VIN号清单</p>
+			{% for vin in vin_list_all %}
+			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
+			</label>
+			{% endfor  %}
+			<br>
+
+			<input id="btn_select_op1" value="全选" type="button">
+			<input id="btn_select_op2" value="全不选" type="button"><br>
+			<p><input id="btn_select_op3" value="自定义数量" type="button"><input type="number" value=20 id="select_num"></p>
+		</div>
+
+		<input type="submit" name="submit" value="显示分析图" style="color:red; text-align:center;">
+		<br>
+	</form>
+
+</div>
+
+<div>
+<h4>异常波动点识别，近3台均值与前9台均值的差值分析，均值差异列</h4>
+<hr><br>
+{{ data_html|safe }}
+
+
+</div>
+
+
+{% endblock content %}
+
+{% block scripts %}
+	{{ super() }}
+
+
+	<script>
+	$(document).ready(function(){
+<!--		测点解析-->
+		$("#parse_point").click(function(){
+			var input_text = $("textarea[name='point_select']").val().toUpperCase();
+			var parse_point = input_text.match(/[A-Z]{2}\d{4}[A-Z]/gi)
+			$("#show_parse_point").text(parse_point)
+
+
+		});
+
+<!--		全选按钮-->
+		$("#btn_select_op1").click(function(){
+			var vins = $("[name = 'vin_list']");
+
+			for(var i=0; i < vins.length; i++){
+			vins[i]["checked"]=true;
+			};
+
+		});
+
+<!--		全不选按钮-->
+		$("#btn_select_op2").on("click", function(){
+			var vins = $("[name = 'vin_list']");
+
+			for(var i=0; i < vins.length; i++){
+			vins[i]["checked"]=false;
+			};
+		});
+
+<!--		选数量,默认20-->
+		$("#btn_select_op3").bind("click", function(){
+			var vins = $("[name = 'vin_list']");
+			select_num = Number($("#select_num").val());
+			for(var i=0; i < select_num; i++){
+			vins[i]["checked"]=true;
+			};
+		});
+	});
+	</script>
+
+{% endblock scripts %}

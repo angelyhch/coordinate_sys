@@ -4,7 +4,7 @@ from flask import url_for
 
 class IndexTestCase(BaseTestCase):
     def test_point_select(self):
-        resp = self.client.get(url_for('hello.hello'))
+        resp = self.client.get(url_for('hello.point_select'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
         self.assertIn('三坐标测点数据分析图', data)

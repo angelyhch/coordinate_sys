@@ -25,6 +25,8 @@ class DevelopmentConfig(BaseConfig):
 
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{name}:{password}@{host}:{port}/{database_name}"
 
+    CACHE_TYPE = 'simple'
+
 class TestConfig(BaseConfig):
     pass
 

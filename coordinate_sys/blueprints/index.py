@@ -1,5 +1,6 @@
 from flask import redirect, Blueprint, url_for, render_template, request, flash
 from coordinate_sys.form_temp import UpLoadFile
+from coordinate_sys.extensions import cache
 import coordinate_sys.models as md
 import re
 import os
@@ -9,12 +10,13 @@ hello_bp = Blueprint('hello', __name__)
 
 
 @hello_bp.route('/')
-def hello(header_cols=4):
+@cache.cached(timeout=60*5)
+def point_select(header_cols=4):
     point_name_dict = md.read_point_name()
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()
     data_html = df_warn.to_html()
-    return render_template('hello/hello.html', vin_list_all=vin_list_all, data_html=data_html)
+    return render_template('hello/point_select.html', vin_list_all=vin_list_all, data_html=data_html)
 
 
 @hello_bp.route('/upload_data', methods=['get', 'post'])
