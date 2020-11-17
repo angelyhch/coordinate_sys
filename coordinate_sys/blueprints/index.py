@@ -13,8 +13,6 @@ def hello(header_cols=4):
     point_name_dict = md.read_point_name()
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()
-    # df_warn.insert(2, '测点功能', df_warn['特征点号'])
-    # df_warn['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df_warn['特征点号'])]
     data_html = df_warn.to_html()
     return render_template('hello/hello.html', vin_list_all=vin_list_all, data_html=data_html)
 

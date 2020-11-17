@@ -1,16 +1,11 @@
 import pandas as pd
+import json
 import os
 from numpy import mean
 import pygal
 from flask import Response
-from coordinate_sys.extensions import db
+from coordinate_sys.extensions import db, root_path
 
-try:
-    from coordinate_sys import root_path
-    temp_rt = 'auto'
-except:
-    root_path = 'D:\\python\\coordinate_sys\\coordinate_sys'
-    temp_rt = 'manual'
 
 try:
     engine = db.engine
@@ -30,7 +25,7 @@ def get_file_path(file_dir=None):
     :return:
     '''
     if file_dir is None:
-        rel_file = 'static\\coordinate_datas'
+        rel_file = 'static\\data_temp'
 
     full_file_dir = os.path.join(root_path, rel_file)
 
@@ -73,12 +68,7 @@ def read_excel_data(
     # 补全点号
     df_3.loc[:'特征点号'].fillna(method='ffill', limit=2, axis=0, inplace=True)
 
-    '''
-        前几列的列名无法去掉.1 。
-        for colname in df_40.columns:
-            if colname.endswith('.1'):
-                df_40.rename(columns={colname: colname[:-2]})
-    '''
+
 
     # 转换为偏差值
     df_40 = df_3.copy()
@@ -94,7 +84,7 @@ def read_excel_data(
     return df
 
 
-def read_point_name(file_path=None):
+def write_point_name(file_path=None):
     if file_path is None:
         file_path = get_file_path()
 
@@ -108,8 +98,20 @@ def read_point_name(file_path=None):
         df_dict = dict(zip([x[:6] for x in df_t3['测点编号'] if len(x) == 7], df_t3['测点功能']))
         point_name_dict.update(df_dict)
 
+    point_name_dict_json_dir = os.path.join(root_path, 'static\\point_name_dict.json')
+
+    with open(point_name_dict_json_dir, 'w', encoding='utf8') as f:
+        json.dump(point_name_dict, f)
+
     return point_name_dict
 
+def read_point_name(filepath=None):
+    if filepath is None:
+        filepath = os.path.join(root_path, 'static\\point_name_dict.json')
+    with open(filepath, 'r', encoding='utf8') as f:
+        point_name_dict = json.load(f)
+
+    return point_name_dict
 
 
 def refresh_database(df):
