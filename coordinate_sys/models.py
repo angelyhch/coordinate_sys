@@ -4,18 +4,7 @@ import os
 from numpy import mean
 import pygal
 from flask import Response
-from coordinate_sys.extensions import db, root_path
-
-
-try:
-    engine = db.engine
-except:
-    from sqlalchemy import create_engine, inspect
-    engine = create_engine('mysql+pymysql://coordinate:coordinate_data@127.0.0.1:3306/coordinate_data')
-
-db_inspector = inspect(engine)
-
-# logger.info(temp_rt)
+from coordinate_sys.extensions import root_path, engine
 
 
 def get_file_path(file_dir=None):

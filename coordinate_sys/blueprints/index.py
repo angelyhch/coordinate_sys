@@ -12,7 +12,6 @@ hello_bp = Blueprint('hello', __name__)
 @hello_bp.route('/')
 @cache.cached(timeout=60*30)
 def point_select(header_cols=4):
-    point_name_dict = md.read_point_name()
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()
     data_html = df_warn.to_html()
@@ -71,8 +70,6 @@ def show_data(header_cols=4):
     # 改列名为6位数字
     newcols = list(cols[:header_cols]) + [x[:17][-6:] for x in cols[header_cols:]]
     df.columns = newcols
-    # df.insert(2, '测点功能', df['特征点号'])
-    # df['测点功能'] = [point_name_dict.get(x[:6], '未查到') for x in list(df['特征点号'])]
     data_html = df.to_html()
     return render_template('hello/show_data.html', data_html=data_html)
 
