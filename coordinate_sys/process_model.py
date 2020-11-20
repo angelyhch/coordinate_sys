@@ -13,7 +13,7 @@ class Station(db.Model):
 
 def manual_input_data_to_station():
     # 设定读取数据源地址
-    excel_path = os.path.join(root_path, r"static\\process_data_temp", r"\\station_1108.xlsx")
+    excel_path = os.path.join(root_path, r"static\process_data_temp", r"station_1108.xlsx")
     # 读取EXCEL数据
     df1 = pd.read_excel(excel_path, header=0, index_col=None)
     # EXCEL数据写入数据库

@@ -4,8 +4,40 @@
 
 
 {% block content %}
-<h1>工位清单</h1>
 
+<h2>station table</h2>
+<table border="1">
+	<thead>
+		<tr>
+			{% for head in station_header %}
+			<th>{{ head }}</th>
+			{% endfor %}
+			<th>工位链接</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for row in station_list %}
+
+		<tr>
+			{% for col in row %}
+				<td>{{ col }}</td>
+			{% endfor  %}
+			<td><a href="{{ url_for('process.station', station=row[1]) }}" title="连接到工位">{{ row[2] }}</a></td>
+
+		</tr>
+
+		{% endfor %}
+	</tbody>
+
+
+</table>
+
+
+<hr>
+<hr>
+<h2>工位清单</h2>
+{{ station_table_html | safe }}
 
 {% endblock content %}
 
