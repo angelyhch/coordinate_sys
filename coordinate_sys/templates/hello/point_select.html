@@ -63,7 +63,7 @@
 		<div style="border: 1px solid gray;">
 			<h3 class="captal1">用户输入三：</h3><p>选择需要分析对比的VIN号清单</p>
 			{% for vin in vin_list_all %}
-			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}">
+			<label >{{ vin[:17][-6:] }}<input type="checkbox" name="vin_list" value="{{ vin }}" id="{{ vin }}" checked>
 			</label>
 			{% endfor  %}
 			<br>

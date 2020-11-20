@@ -3,6 +3,7 @@ from coordinate_sys.settings import config
 import os
 from coordinate_sys.logger_class import logger
 from coordinate_sys.blueprints.index import hello_bp
+from coordinate_sys.blueprints.process import process_bp
 from coordinate_sys.extensions import db, bootstrap, toolbar, mail, cache, db_inspector
 
 #todo:待确认shell环境设置
@@ -17,6 +18,7 @@ def register_shell_context(app):
 
 def register_blueprints(app):
     app.register_blueprint(hello_bp)
+    app.register_blueprint(process_bp)
 
 
 def create_app(config_name=None):
