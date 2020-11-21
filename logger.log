@@ -1070,3 +1070,231 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolba
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
 ¡¾INFO¡¿:2020-11-21T12:04:13>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.4531250107247251¡¿
+¡¾INFO¡¿:2020-11-21T13:46:15>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T13:46:16>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.43222290635498206¡¿
+¡¾INFO¡¿:2020-11-21T13:46:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-050¡¿
+¡¾INFO¡¿:2020-11-21T13:46:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8969298393750063¡¿
+¡¾INFO¡¿:2020-11-21T13:47:59>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1BSI4-110L¡¿
+¡¾INFO¡¿:2020-11-21T13:48:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8632921761777039¡¿
+¡¾INFO¡¿:2020-11-21T13:52:09>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T13:52:10>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.3335622745281519¡¿
+¡¾INFO¡¿:2020-11-21T13:57:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T13:57:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.0937950934243772¡¿
+¡¾INFO¡¿:2020-11-21T13:57:28>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T13:57:28>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6432342199515613¡¿
+¡¾INFO¡¿:2020-11-21T13:57:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/weldspot¡¿
+¡¾INFO¡¿:2020-11-21T13:57:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.43741289354013513¡¿
+¡¾INFO¡¿:2020-11-21T13:57:46>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T13:57:47>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.049890971790477634¡¿
+¡¾INFO¡¿:2020-11-21T13:57:54>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T13:57:54>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8616051202163244¡¿
+¡¾INFO¡¿:2020-11-21T13:58:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/weldspot¡¿
+¡¾INFO¡¿:2020-11-21T13:58:01>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.47963606366376177¡¿
+¡¾INFO¡¿:2020-11-21T13:58:02>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T13:58:02>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.09336777027059573¡¿
+¡¾INFO¡¿:2020-11-21T13:58:08>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T13:58:08>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.5737805507944747¡¿
+¡¾INFO¡¿:2020-11-21T14:01:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:01:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.14570856858423564¡¿
+¡¾INFO¡¿:2020-11-21T14:33:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:33:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.798790248659605¡¿
+¡¾INFO¡¿:2020-11-21T14:33:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:34:16>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:34:17>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.17568226586224878¡¿
+¡¾INFO¡¿:2020-11-21T14:34:22>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:34:22>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9217246766084202¡¿
+¡¾INFO¡¿:2020-11-21T14:34:23>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:34:24>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9015692652856733¡¿
+¡¾INFO¡¿:2020-11-21T14:34:30>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:34:31>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.23311196773061416¡¿
+¡¾INFO¡¿:2020-11-21T14:34:32>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:34:32>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.1073007737999867¡¿
+¡¾INFO¡¿:2020-11-21T14:36:08>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T14:36:08>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.1859776943779281¡¿
+¡¾INFO¡¿:2020-11-21T14:36:10>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:36:10>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2374069139199313¡¿
+¡¾INFO¡¿:2020-11-21T14:36:11>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:36:12>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.5567909474210702¡¿
+¡¾INFO¡¿:2020-11-21T14:36:45>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:36:45>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.47570150191190996¡¿
+¡¾INFO¡¿:2020-11-21T14:36:48>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:36:48>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.7567779009939077¡¿
+¡¾INFO¡¿:2020-11-21T14:37:01>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:38:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:38:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.10088311649076975¡¿
+¡¾INFO¡¿:2020-11-21T14:38:02>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:38:02>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.4088077581250469¡¿
+¡¾INFO¡¿:2020-11-21T14:38:09>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:38:34>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:38:34>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9099072116639741¡¿
+¡¾INFO¡¿:2020-11-21T14:38:53>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:39:26>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:39:26>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.11638199617156642¡¿
+¡¾INFO¡¿:2020-11-21T14:40:12>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:40:12>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.21147117928883974¡¿
+¡¾INFO¡¿:2020-11-21T14:40:18>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:41:29>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:41:30>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.343551079580821¡¿
+¡¾INFO¡¿:2020-11-21T14:41:33>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:41:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:41:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.34730389672388484¡¿
+¡¾INFO¡¿:2020-11-21T14:43:37>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T14:43:37>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9793227023394031¡¿
+¡¾INFO¡¿:2020-11-21T14:43:41>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:43:41>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.7976538370040831¡¿
+¡¾INFO¡¿:2020-11-21T14:43:52>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T14:43:52>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.18101067227694445¡¿
+¡¾INFO¡¿:2020-11-21T14:43:54>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1DA4-060¡¿
+¡¾INFO¡¿:2020-11-21T14:43:54>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.003774614827081413¡¿
+¡¾INFO¡¿:2020-11-21T14:44:01>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:44:02>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2053049384395702¡¿
+¡¾INFO¡¿:2020-11-21T14:44:12>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:45:45>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T14:45:46>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.37209687758791876¡¿
+¡¾INFO¡¿:2020-11-21T14:45:52>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/weldspot¡¿
+¡¾INFO¡¿:2020-11-21T14:45:53>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.4003467584481426¡¿
+¡¾INFO¡¿:2020-11-21T14:46:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-21T14:46:00>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.044864461239312536¡¿
+¡¾INFO¡¿:2020-11-21T14:46:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T14:46:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.034759963729125154¡¿
+¡¾INFO¡¿:2020-11-21T14:46:23>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-060¡¿
+¡¾INFO¡¿:2020-11-21T14:46:24>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.568562779432463¡¿
+¡¾INFO¡¿:2020-11-21T15:00:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T15:00:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6585677568319963¡¿
+¡¾INFO¡¿:2020-11-21T15:00:23>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-020¡¿
+¡¾INFO¡¿:2020-11-21T15:00:23>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.35658453086338815¡¿
+¡¾INFO¡¿:2020-11-21T15:01:36>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T15:01:36>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6268514802202769¡¿
+¡¾INFO¡¿:2020-11-21T15:01:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-010¡¿
+¡¾INFO¡¿:2020-11-21T15:01:40>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8356300376888652¡¿
+¡¾INFO¡¿:2020-11-21T15:04:47>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-010¡¿
+¡¾INFO¡¿:2020-11-21T15:04:48>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.35540776613939595¡¿
+¡¾INFO¡¿:2020-11-21T15:05:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-010¡¿
+¡¾INFO¡¿:2020-11-21T15:05:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.187471713596572¡¿
+¡¾INFO¡¿:2020-11-21T15:10:34>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T15:10:34>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9963551550947978¡¿
+¡¾INFO¡¿:2020-11-21T15:10:35>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-21T15:10:35>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.5097896104952224¡¿
+¡¾INFO¡¿:2020-11-21T15:10:47>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1RA3-010¡¿
+¡¾INFO¡¿:2020-11-21T15:10:47>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2869448239493526¡¿
+¡¾INFO¡¿:2020-11-21T15:10:53>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FD1-010L¡¿
+¡¾INFO¡¿:2020-11-21T15:10:53>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6844337228570032¡¿
+¡¾INFO¡¿:2020-11-21T15:11:57>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1BD1-020¡¿
+¡¾INFO¡¿:2020-11-21T15:11:57>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.709475083396574¡¿
+¡¾INFO¡¿:2020-11-21T15:12:05>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-11-21T15:12:05>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6341276126719826¡¿
+¡¾INFO¡¿:2020-11-21T15:12:09>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿

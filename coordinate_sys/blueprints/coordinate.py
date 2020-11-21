@@ -1,5 +1,5 @@
 from flask import redirect, Blueprint, url_for, render_template, request, flash
-from coordinate_sys.form_temp import UpLoadFile
+from coordinate_sys.forms import UpLoadFileForm
 from coordinate_sys.extensions import cache
 import coordinate_sys.models as md
 import re
@@ -28,7 +28,7 @@ def point_select(header_cols=4):
 def upload_data():
     from coordinate_sys import app
     from coordinate_sys.models import read_excel_data, refresh_database
-    upload_form = UpLoadFile()
+    upload_form = UpLoadFileForm()
 
     if upload_form.validate_on_submit():
         if upload_form.upload_password.data == 'gyz':

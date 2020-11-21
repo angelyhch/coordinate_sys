@@ -16,7 +16,7 @@
 	<tbody>
 		{% for tb, content in station_dict.items() %}
 		<tr>
-			<td>{{ tb }}</td>
+			<td>{{ table_name_dict[tb] }}</td>
 			<td>{{ content.shape[0] }}</td>
 			<td>{{ content.to_html() | safe }}</td>
 		</tr>
