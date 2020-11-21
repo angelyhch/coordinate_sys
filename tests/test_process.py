@@ -15,6 +15,12 @@ class ProcessTestCase(BaseTestCase):
         self.assertIn('200', resp.status)
         self.assertIn('station_test', data)
 
+    def test_info(self):
+        resp = self.client.get(url_for('process.info', url='jig'))
+        data = resp.get_data(as_text=True)
+        self.assertIn('200', resp.status)
+        self.assertIn('productor', data)
+
 
 
 

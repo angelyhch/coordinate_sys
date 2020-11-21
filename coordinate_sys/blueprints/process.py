@@ -24,16 +24,15 @@ def stations():
 
 
 @process_bp.route('/info/<string:url>')
-def daohang(url):
+def info(url):
     table = url
     if table in info_table_list:
         df = dbo.read_table(table)
         table_name = table_name_dict[table]
         df_html = df.to_html()
-        return render_template('process/daohang.html', df_html=df_html, table_name=table_name)
+        return render_template('process/info.html', df_html=df_html, table_name=table_name)
     else:
         return '<h1> 不是信息表！ </h1>'
-
 
 
 @process_bp.route('/stations/<station>')
