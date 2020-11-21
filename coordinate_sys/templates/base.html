@@ -37,9 +37,10 @@
         <hr>
     	<h5>工艺信息系统</h5>
     <nav>
-          <a href="{{ url_for('process.station') }}"><strong>工位清单</strong>|</a>
-          <a href="{{ url_for('process.jig') }}" target="_blank">夹具表|</a>
-          <a href="{{ url_for('process.part') }}" target="_blank">零件表|</a>
+          <a href="{{ url_for('process.stations') }}"><strong>工位清单</strong>|</a>
+          <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具表|</a>
+          <a href="{{ url_for('process.info', url='part') }}" target="_blank">零件表|</a>
+          <a href="{{ url_for('process.info', url='weldspot') }}" target="_blank">焊点表|</a>
 	</nav>
 
     </div>
