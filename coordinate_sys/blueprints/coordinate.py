@@ -6,19 +6,25 @@ import re
 import os
 from datetime import datetime
 
-hello_bp = Blueprint('hello', __name__)
+coordinate_bp = Blueprint('coordinate', __name__)
 
 
-@hello_bp.route('/')
-@cache.cached(timeout=60*30)
+@coordinate_bp.route('/')
+def index():
+    pass
+    return render_template('index.html')
+
+
+@coordinate_bp.route('/point_select')
+# @cache.cached(timeout=60*30)
 def point_select(header_cols=4):
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()
     data_html = df_warn.to_html()
-    return render_template('hello/point_select.html', vin_list_all=vin_list_all, data_html=data_html)
+    return render_template('coordinate/point_select.html', vin_list_all=vin_list_all, data_html=data_html)
 
 
-@hello_bp.route('/upload_data', methods=['get', 'post'])
+@coordinate_bp.route('/upload_data', methods=['get', 'post'])
 def upload_data():
     from coordinate_sys import app
     from coordinate_sys.models import read_excel_data, refresh_database
@@ -36,14 +42,14 @@ def upload_data():
             flash(f'upload success at {last_modify_time}')
             df = read_excel_data(file_path=full_file_path_name)
             refresh_database(df)
-            return render_template('hello/upload_data.html', form=upload_form, file_req=file_req)
+            return render_template('coordinate/upload_data.html', form=upload_form, file_req=file_req)
         else:
             flash('密码错误！请输入正确口令！')
-            return redirect(url_for('hello.upload_data'))
-    return render_template('hello/upload_data.html', form=upload_form)
+            return redirect(url_for('coordinate.upload_data'))
+    return render_template('coordinate/upload_data.html', form=upload_form)
 
 
-@hello_bp.route('/chart_fig', methods=['get', 'post'])
+@coordinate_bp.route('/chart_fig', methods=['get', 'post'])
 def chart_fig():
     vin_list1 = request.values.getlist('vin_list')
 
@@ -62,7 +68,7 @@ def chart_fig():
     return chart_response
 
 
-@hello_bp.route('/show_data')
+@coordinate_bp.route('/show_data')
 def show_data(header_cols=4):
     df = md.read_database()
     # point_name_dict = md.read_point_name()
@@ -71,12 +77,12 @@ def show_data(header_cols=4):
     newcols = list(cols[:header_cols]) + [x[:17][-6:] for x in cols[header_cols:]]
     df.columns = newcols
     data_html = df.to_html()
-    return render_template('hello/show_data.html', data_html=data_html)
+    return render_template('coordinate/show_data.html', data_html=data_html)
 
 
-@hello_bp.route('/warning_point')
+@coordinate_bp.route('/warning_point')
 def warning_point():
     df_warn = md.warning_point()
     data_html = df_warn.to_html()
-    return render_template('hello/warning_point.html', data_html=data_html)
+    return render_template('coordinate/warning_point.html', data_html=data_html)
 

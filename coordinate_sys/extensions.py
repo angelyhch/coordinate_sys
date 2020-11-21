@@ -41,12 +41,5 @@ class Dbobj:
     def read_table(self, table_name, index_col=None):
         df_read = pd.read_sql_table(table_name, self.engine, index_col=index_col)
         return df_read
-#
-# def manual_input_data(read_excel_name, to_table_name, engine, temp_folder=r"static\process_data_temp", to_schema='coordinate_data', header=0, index_col=None):
-#     # 设定读取数据源地址
-#     excel_path = os.path.join(root_path, temp_folder, read_excel_name)
-#     # 读取EXCEL数据
-#     df1 = pd.read_excel(excel_path, header=header, index_col=index_col)
-#     # EXCEL数据写入数据库
-#     df1.to_sql(to_table_name, engine, schema=to_schema, if_exists='replace') #todo: 以后要和三坐标分析拆分数据库或者拆表
+
 

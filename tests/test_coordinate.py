@@ -4,23 +4,23 @@ from flask import url_for
 
 class IndexTestCase(BaseTestCase):
     def test_point_select(self):
-        resp = self.client.get(url_for('hello.point_select'))
+        resp = self.client.get(url_for('coordinate.point_select'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
         self.assertIn('三坐标测点数据分析图', data)
 
     def test_upload_data(self):
-        resp = self.client.get(url_for('hello.upload_data'))
+        resp = self.client.get(url_for('coordinate.upload_data'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
 
     def test_chart_fig(self):
-        resp = self.client.get(url_for('hello.chart_fig'))
+        resp = self.client.get(url_for('coordinate.chart_fig'))
         data = resp.get_data(as_text=True)
         self.assertIn('500', resp.status)
 
     def test_show_data(self):
-        resp = self.client.get(url_for('hello.show_data'))
+        resp = self.client.get(url_for('coordinate.show_data'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
 

@@ -1,0 +1,51 @@
+{% extends 'base_process.html' %}
+
+{% block title %} {{ station }}工位明细 {% endblock title %}
+
+
+{% block content %}
+<h2>{{ station }}工位明细</h2>
+<table border="5">
+	<thead>
+		<th>项目</th>
+		<th>数量</th>
+		<th style="text-align:center">内容</th>
+
+	</thead>
+
+	<tbody>
+		{% for tb, content in station_dict.items() %}
+		<tr>
+			<td>{{ tb }}</td>
+			<td>{{ content.shape[0] }}</td>
+			<td>{{ content.to_html() | safe }}</td>
+		</tr>
+		{% endfor %}
+	
+<!--	<tr>-->
+<!--		<td style="background-color:yellow">夹具</td>-->
+<!--		<td>{{ df_st_jig_html | safe }}</td>-->
+<!--	</tr>-->
+<!--	<tr>-->
+<!--		<td style="background-color:yellow">零部件</td>-->
+<!--		<td>{{ df_st_jig_html | safe }}</td>-->
+
+<!--	</tr>-->
+
+
+	</tbody>
+
+
+
+</table>
+
+
+<hr>
+<hr>
+
+{% endblock content %}
+
+{% block scripts %}
+	{{ super() }}
+
+{% endblock scripts %}

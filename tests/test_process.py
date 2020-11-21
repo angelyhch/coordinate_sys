@@ -7,7 +7,7 @@ class ProcessTestCase(BaseTestCase):
         resp = self.client.get(url_for('process.stations'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
-        self.assertIn('station table', data)
+        self.assertIn('工位清单表', data)
 
     def test_station(self):
         resp = self.client.get(url_for('process.station', station='station_test'))

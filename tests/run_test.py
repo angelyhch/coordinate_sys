@@ -1,6 +1,6 @@
 from HTMLTestRunner.HTMLTestRunner import HTMLTestRunner
 import unittest, os
-from tests import test_index
+from tests import test_coordinate
 
 suite = unittest.TestSuite()
 loader = unittest.TestLoader()

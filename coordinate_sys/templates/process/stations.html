@@ -1,11 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base_process.html' %}
 
 {% block title %} stations {% endblock title %}
 
 
 {% block content %}
 
-<h2>station table</h2>
+<h2>工位清单表</h2>
 <table border="1">
 	<thead>
 		<tr>
@@ -36,8 +36,6 @@
 
 <hr>
 <hr>
-<h2>工位清单</h2>
-{{ station_table_html | safe }}
 
 {% endblock content %}
 

@@ -1,0 +1,21 @@
+{% extends 'base_process.html' %}
+
+{% block title %} jigs {% endblock title %}
+
+
+{% block content %}
+
+<h2>夹具清单表</h2>
+
+{{ df_jigs_html | safe }}
+
+
+<hr>
+<hr>
+
+{% endblock content %}
+
+{% block scripts %}
+	{{ super() }}
+
+{% endblock scripts %}

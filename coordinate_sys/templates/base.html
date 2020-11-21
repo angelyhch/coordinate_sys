@@ -19,17 +19,29 @@
       {%- endblock styles %}
     {%- endblock head %}
   </head>
-  <body{% block body_attribs %}{% endblock body_attribs %}>
+  <body {% block body_attribs %}{% endblock body_attribs %}>
     {% block body -%}
     {% block navbar %}
     <div>
+    请选择 <a href="{{ url_for('coordinate.point_select') }}"><strong>【三坐标系统】</strong></a> 或 <a href="{{ url_for('process.stations') }}"><strong>【工艺信息系统】</strong></a>
+        <hr>
+        <hr>
+
+        <h5>三坐标系统</h5>
     <nav>
-      <a href="{{ url_for('hello.point_select') }}">测点选择|</a>
-      <a href="{{ url_for('hello.upload_data') }}">数据库更新|</a>
-      <a href="{{ url_for('hello.show_data') }}" target="_blank">详细数据|</a>
-      <a href="{{ url_for('hello.warning_point') }}" target="_blank">异常数据|</a>
-      <a href="{{ url_for('process.stations') }}" target="_blank">工位清单</a>
+          <a href="{{ url_for('coordinate.point_select') }}"><strong>测点选择</strong>|</a>
+          <a href="{{ url_for('coordinate.upload_data') }}" target="_blank">数据库更新|</a>
+          <a href="{{ url_for('coordinate.show_data') }}" target="_blank">详细数据|</a>
+          <a href="{{ url_for('coordinate.warning_point') }}" target="_blank">异常数据|</a>
     </nav>
+        <hr>
+    	<h5>工艺信息系统</h5>
+    <nav>
+          <a href="{{ url_for('process.stations') }}"><strong>工位清单</strong>|</a>
+          <a href="{{ url_for('process.jigs') }}" target="_blank">夹具表|</a>
+          <a href="{{ url_for('process.parts') }}" target="_blank">零件表|</a>
+	</nav>
+
     </div>
 
     {%- endblock navbar %}

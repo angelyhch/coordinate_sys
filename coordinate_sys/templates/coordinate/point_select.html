@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_coordinate.html' %}
 
 {% block title %} point_select_chart {% endblock title %}
 
@@ -31,7 +31,7 @@
 
 
 
-	<form action="{{url_for('hello.chart_fig')}}" method="post" target="_blank" >
+	<form action="{{url_for('coordinate.chart_fig')}}" method="post" target="_blank" >
 		<div class="container" style="border:1px;">
 			<h3 class="captal1">用户输入一：</h3><p>输入分析测点，”XXDDDDX“（X代表字母，D代表数字），同时输入所有需对比测点</p>
 
