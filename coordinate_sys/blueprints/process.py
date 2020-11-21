@@ -54,7 +54,7 @@ def station(station):
     for table in info_table_list:
         df_tb = dbo.read_table(table)
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
-
-        station_dict[table] = df_tb_st
+        df_tb_st_1 = df_tb_st.set_index('index')
+        station_dict[table] = df_tb_st_1
 
     return render_template('process/station.html', table_name_dict=table_name_dict, station=station, station_dict=station_dict)
