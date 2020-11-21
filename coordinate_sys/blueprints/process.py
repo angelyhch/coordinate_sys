@@ -6,6 +6,13 @@ from coordinate_sys.process_model import dbo
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
+info_table_list = ['jig', 'part', 'weldspot']
+table_name_dict = {
+    'jig': '夹具清单表',
+    'part': '零部件清单表',
+    'weldspot': '焊点清单表'
+}
+
 @process_bp.route('/')
 def stations():
     pass
@@ -16,26 +23,24 @@ def stations():
     return render_template('process/stations.html', station_header=station_header, station_list=station_list)
 
 
-@process_bp.route('/jigs')
-def jigs():
-    df_jigs = dbo.read_table('jig')
-    df_jigs_html = df_jigs.to_html()
-    return render_template('process/jigs.html', df_jigs_html=df_jigs_html)
+@process_bp.route('/info/<string:url>')
+def daohang(url):
+    table = url
+    if table in info_table_list:
+        df = dbo.read_table(table)
+        table_name = table_name_dict[table]
+        df_html = df.to_html()
+        return render_template('process/daohang.html', df_html=df_html, table_name=table_name)
+    else:
+        return '<h1> 不是信息表！ </h1>'
 
-
-@process_bp.route('/parts') #todo: 各个表格自动识别，用table name 作为参数
-def parts():
-    df_parts = dbo.read_table('part')
-    df_parts_html = df_parts.to_html()
-    return render_template('process/parts.html', df_parts_html=df_parts_html)
 
 
 @process_bp.route('/stations/<station>')
 @cache.cached(query_string=True)
 def station(station):
-    read_table_list = ['jig', 'part']
     station_dict = {}
-    for table in read_table_list:
+    for table in info_table_list:
         df_tb = dbo.read_table(table)
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
 

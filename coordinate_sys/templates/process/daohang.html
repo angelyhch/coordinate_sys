@@ -1,13 +1,13 @@
 {% extends 'base_process.html' %}
 
-{% block title %} jigs {% endblock title %}
+{% block title %}{{ table_name }}{% endblock title %}
 
 
 {% block content %}
 
-<h2>夹具清单表</h2>
+<h2>{{ table_name }}</h2>
 
-{{ df_jigs_html | safe }}
+{{ df_html | safe }}
 
 
 <hr>
