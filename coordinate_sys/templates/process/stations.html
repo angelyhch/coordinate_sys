@@ -23,7 +23,7 @@
 			{% for col in row %}
 				<td>{{ col }}</td>
 			{% endfor  %}
-			<td><a href="{{ url_for('process.station', station=row[1]) }}" target="_blank" title="连接到工位">{{ row[2] }}</a></td>
+			<td><a href="{{ url_for('process.station', station=row[0]) }}" target="_blank" title="点击查看工位详细内容">{{ row[1] }}</a></td>
 
 		</tr>
 

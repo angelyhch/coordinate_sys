@@ -38,7 +38,7 @@ class Dbobj:
         # EXCEL数据写入数据库
         df1.to_sql(to_table_name, self.engine, schema=to_schema, if_exists='replace')  # todo: 以后要和三坐标分析拆分数据库或者拆表
 
-    def read_table(self, table_name, index_col=None):
+    def read_table(self, table_name, index_col='index'):
         df_read = pd.read_sql_table(table_name, self.engine, index_col=index_col)
         return df_read
 

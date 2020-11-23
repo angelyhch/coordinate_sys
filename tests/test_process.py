@@ -19,7 +19,7 @@ class ProcessTestCase(BaseTestCase):
         resp = self.client.get(url_for('process.info', url='jig'))
         data = resp.get_data(as_text=True)
         self.assertIn('200', resp.status)
-        self.assertIn('productor', data)
+        self.assertIn('制造商', data)
 
 
 

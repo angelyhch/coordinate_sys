@@ -8,12 +8,13 @@ from coordinate_sys.forms import InputPartForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'part', 'weldspot', 'daoruyanzhengjilu']
+info_table_list = ['jig', 'part', 'weldspot', 'tujiao', 'daoruyanzhengjilu']
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
     'weldspot': '焊点清单表',
-    'daoruyanzhengjilu': '车型导入验证记录'
+    'daoruyanzhengjilu': '车型导入验证记录',
+    'tujiao': '涂胶明细表'
 }
 
 @process_bp.route('/')
@@ -54,7 +55,6 @@ def station(station):
     for table in info_table_list:
         df_tb = dbo.read_table(table)
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
-        df_tb_st_1 = df_tb_st.set_index('index')
-        station_dict[table] = df_tb_st_1
+        station_dict[table] = df_tb_st
 
     return render_template('process/station.html', table_name_dict=table_name_dict, station=station, station_dict=station_dict)
