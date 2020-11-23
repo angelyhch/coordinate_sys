@@ -1542,3 +1542,11 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolba
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
 ¡¾INFO¡¿:2020-11-23T09:44:05>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2682145032993073¡¿
+¡¾INFO¡¿:2020-11-23T11:04:40>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
+¡¾INFO¡¿:2020-11-23T11:04:41>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8577790453859404¡¿
+¡¾INFO¡¿:2020-11-23T11:04:43>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/muju¡¿
+¡¾INFO¡¿:2020-11-23T11:04:44>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.798440185971923¡¿
