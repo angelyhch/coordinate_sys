@@ -5,6 +5,10 @@
 
 {% block content %}
 
+
+
+
+
 <h2>工位清单表</h2>
 <table border="1">
 	<thead>
@@ -36,6 +40,14 @@
 
 <hr>
 <hr>
+
+<hr>
+<h3>网页二维码地址:</h3>
+ <br>
+
+<img src="data:image/jpeg;base64,{{ qr_img_data }}"/>
+
+
 
 {% endblock content %}
 

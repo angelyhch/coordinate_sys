@@ -1,5 +1,8 @@
-from flask import url_for, render_template, Blueprint
-import pandas as pd
+from flask import url_for, render_template, Blueprint, request
+import qrcode
+from PIL import Image
+import base64
+from io import StringIO, BytesIO
 import numpy as np
 from coordinate_sys.extensions import cache
 from coordinate_sys.process_model import dbo
@@ -21,12 +24,20 @@ table_name_dict = {
 
 @process_bp.route('/')
 def stations():
-    pass
+
+    url = request.url
+    qr_url = qrcode.make(url)
+    qr_buffer = BytesIO()
+    qr_url.save(qr_buffer)
+
+    # 最后要用decode转出字符串,因为img标签里存放的是字符串。
+    qr_img_data = base64.b64encode(qr_buffer.getvalue()).decode()
+
     station_table = dbo.read_table('station')
     station_header = list(station_table)
     station_list = np.array(station_table).tolist()
 
-    return render_template('process/stations.html', station_header=station_header, station_list=station_list)
+    return render_template('process/stations.html', qr_img_data=qr_img_data, station_header=station_header, station_list=station_list)
 
 
 @process_bp.route('/info/<string:url>', methods=['get', 'post'])
