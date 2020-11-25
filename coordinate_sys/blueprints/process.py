@@ -18,6 +18,7 @@ table_name_dict = {
     'muju': '模具明细表'
 }
 
+
 @process_bp.route('/')
 def stations():
     pass

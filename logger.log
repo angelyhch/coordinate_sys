@@ -1550,3 +1550,43 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolba
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/muju¡¿
 ¡¾INFO¡¿:2020-11-23T11:04:44>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.798440185971923¡¿
+¡¾INFO¡¿:2020-11-23T12:15:20>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-23T12:15:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.1655038005948446¡¿
+¡¾INFO¡¿:2020-11-23T12:15:23>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-030¡¿
+¡¾INFO¡¿:2020-11-23T12:18:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-23T12:18:19>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.21793909499969777¡¿
+¡¾INFO¡¿:2020-11-23T12:18:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-11-23T12:18:21>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.21842074490671504¡¿
+¡¾INFO¡¿:2020-11-23T12:18:22>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-050¡¿
+¡¾INFO¡¿:2020-11-23T12:18:22>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.22880524267302071¡¿
+¡¾INFO¡¿:2020-11-24T11:33:38>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/¡¿
+¡¾INFO¡¿:2020-11-24T11:33:38>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/css/bootstrap.css¡¿
+¡¾INFO¡¿:2020-11-24T11:33:38>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/js/bootstrap.min.js¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/js/jquery-3.2.1.slim.min.js¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.js¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.tablesorter.js¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/js/toolbar.js¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.10286992270362205¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/img/tick-red.png¡¿
+¡¾INFO¡¿:2020-11-24T11:33:39>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/favicon.ico¡¿
+¡¾INFO¡¿:2020-11-24T11:33:45>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/jig¡¿
