@@ -1,6 +1,9 @@
 from flask import redirect, Blueprint, url_for, render_template, request, flash
 from coordinate_sys.forms import UpLoadFileForm
 from coordinate_sys.extensions import cache
+import base64
+import qrcode
+from io import BytesIO
 import coordinate_sys.models as md
 import re
 import os
@@ -11,8 +14,15 @@ coordinate_bp = Blueprint('coordinate', __name__)
 
 @coordinate_bp.route('/')
 def index():
+    url = request.url
+    qr_url = qrcode.make(url)
+    qr_buffer = BytesIO()
+    qr_url.save(qr_buffer)
+
+    # 最后要用decode转出字符串,因为img标签里存放的是字符串。
+    qr_img_data = base64.b64encode(qr_buffer.getvalue()).decode()
     pass
-    return render_template('index.html')
+    return render_template('index.html', qr_img_data=qr_img_data)
 
 
 @coordinate_bp.route('/point_select')

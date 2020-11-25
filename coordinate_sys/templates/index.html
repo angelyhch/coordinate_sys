@@ -1,1 +1,10 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<h3>网页二维码地址:</h3>
+ <br>
+
+<img src="data:image/jpeg;base64,{{ qr_img_data }}"/>
+
+{% endblock content %}
