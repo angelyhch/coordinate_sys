@@ -38,7 +38,8 @@
     	<h5>工艺信息系统</h5>
     <nav>
           <a href="{{ url_for('process.stations') }}"><strong>工位清单</strong>|</a>
-          <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具表|</a>
+          <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具清单表|</a>
+          <a href="{{ url_for('process.info', url='jig_records') }}" target="_blank">夹具履历表|</a>
           <a href="{{ url_for('process.info', url='part') }}" target="_blank">零件表|</a>
           <a href="{{ url_for('process.info', url='weldspot') }}" target="_blank">焊点表|</a>
           <a href="{{ url_for('process.info', url='tujiao') }}" target="_blank">涂胶明细表|</a>

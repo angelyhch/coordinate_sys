@@ -11,14 +11,15 @@ from coordinate_sys.forms import InputPartForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'part', 'weldspot', 'tujiao', 'daoruyanzhengjilu', 'muju']
+info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'daoruyanzhengjilu', 'muju']
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
     'weldspot': '焊点清单表',
     'daoruyanzhengjilu': '车型导入验证记录',
     'tujiao': '涂胶明细表',
-    'muju': '模具明细表'
+    'muju': '模具明细表',
+    'jig_records': '夹具履历表'
 }
 
 

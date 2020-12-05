@@ -4,4 +4,4 @@ import os, sys
 
 dbo = Dbobj(engine)
 
-
+# dbo.excel_to_table('jig_records_1205.xlsx', 'jig_records')
