@@ -57,8 +57,8 @@
 				// window.location.href="https://www.runoob.com";
 				
 				// 取得要提交的参数
-				// var my_val = $(this).innerText;
-				var my_val = 'A00085311';
+				var my_val = this.innerText;
+				// var my_val = 'A00085311';
 				// 取得要提交的页面URL，待确认是否要带引号
 				var action = "{{ url_for('process.info', _external=True, url='part', _method='POST') }}";
 				// var action = "https://www.runoob.com";
