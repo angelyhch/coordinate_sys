@@ -2342,3 +2342,27 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/js/bootstrap.min.js.map¡¿
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/static/css/bootstrap.css.map¡¿
 ¡¾INFO¡¿:2020-12-06T15:02:03>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/part¡¿
+¡¾INFO¡¿:2020-12-06T15:54:24>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-12-06T15:54:24>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.29606049252226896¡¿
+¡¾INFO¡¿:2020-12-06T15:54:30>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/co2¡¿
+¡¾INFO¡¿:2020-12-06T15:54:30>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9893286628662643¡¿
+¡¾INFO¡¿:2020-12-06T15:54:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/¡¿
+¡¾INFO¡¿:2020-12-06T15:54:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.11321250752403667¡¿
+¡¾INFO¡¿:2020-12-06T15:54:47>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1DA4-070¡¿
+¡¾INFO¡¿:2020-12-06T15:54:48>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2738345892714127¡¿
+¡¾INFO¡¿:2020-12-06T15:55:26>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1FF4-070¡¿
+¡¾INFO¡¿:2020-12-06T15:55:27>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.09152026056476181¡¿
+¡¾INFO¡¿:2020-12-06T15:55:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/stations/W1DA4-070¡¿
+¡¾INFO¡¿:2020-12-06T15:55:42>>>>
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.476374846121272¡¿
