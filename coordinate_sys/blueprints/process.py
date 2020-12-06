@@ -46,10 +46,13 @@ def info(url):
     table = url
     input_part_form = InputPartForm()
 
-    if input_part_form.validate_on_submit():
-        lingjinahao = input_part_form.lingjianhao.data
+    if input_part_form.validate_on_submit() or request.form.get('search_lingjianhao'):
+        if input_part_form.validate_on_submit():
+            lingjinahao = input_part_form.lingjianhao.data
+        else:
+            lingjianhao = request.form.get('search_lingjianhao')
         df_pbom = dbo.read_table('pbom')
-        df_part = df_pbom.loc[df_pbom['lingjianhao'] == lingjinahao, ]
+        df_part = df_pbom.loc[df_pbom['lingjianhao'] == lingjianhao, ]
         df_part_html = df_part.to_html()
         return df_part_html
     else:

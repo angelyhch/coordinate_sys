@@ -13,7 +13,7 @@
 
 	</thead>
 
-	<tbody>
+	<tbody id="main_tbody">
 		{% for tb, content in station_dict.items() %}
 		<tr>
 			<td>{{ table_name_dict[tb] }}</td>
@@ -22,15 +22,6 @@
 		</tr>
 		{% endfor %}
 	
-<!--	<tr>-->
-<!--		<td style="background-color:yellow">夹具</td>-->
-<!--		<td>{{ df_st_jig_html | safe }}</td>-->
-<!--	</tr>-->
-<!--	<tr>-->
-<!--		<td style="background-color:yellow">零部件</td>-->
-<!--		<td>{{ df_st_jig_html | safe }}</td>-->
-
-<!--	</tr>-->
 
 
 	</tbody>
@@ -47,5 +38,58 @@
 
 {% block scripts %}
 	{{ super() }}
+<script>
+<!--增加零件超链接查询BOM功能-->
+	$(document).ready(function(){
+		alert("try alert")
+
+		part_td = $("#main_tbody tr :contains(零部件清单表)").siblings(":contains(lingjianhao)")
+
+		pattern = /^[A|Q|9][\w|\d]{7,9}/gi
+		cell_tds= part_td.find("td").filter(function(){return (pattern.test(this.innerText))})
+
+		cell_tds.each(function(){
+		$(this).css("background-color", "yellow");
+
+
+		cell_tds.each(function(){
+			$(this).click(function(){
+				// window.location.href="https://www.runoob.com";
+				
+				// 取得要提交的参数
+				// var my_val = $(this).innerText;
+				var my_val = 'A00085311';
+				// 取得要提交的页面URL，待确认是否要带引号
+				var action = "{{ url_for('process.info', _external=True, url='part', _method='POST') }}";
+				// var action = "https://www.runoob.com";
+
+				// 创建Form
+				var form = $('<form></form>');
+				// 设置属性
+				form.attr('action', action);
+				form.attr('method', 'post');
+				form.attr('target', '_blank');
+				// 创建Input
+				var my_input = $('<input type="text" name="search_lingjianhao" />');
+				my_input.attr('value', my_val);
+
+				// 附件到Form
+				form.append(my_input);
+				$("body").append(form);
+
+				// 提交表单
+				form.submit();
+
+				return false;
+
+			})
+		})
+
+		})
+
+
+	})
+
+</script>
 
 {% endblock scripts %}
