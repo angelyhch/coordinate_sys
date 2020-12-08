@@ -11,7 +11,7 @@ from coordinate_sys.forms import InputPartForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'daoruyanzhengjilu', 'muju']
+info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'daoruyanzhengjilu', 'muju']
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
@@ -20,7 +20,8 @@ table_name_dict = {
     'tujiao': '涂胶明细表',
     'muju': '模具明细表',
     'jig_records': '夹具履历表',
-    'co2': 'CO2焊明细表'
+    'co2': 'CO2焊明细表',
+    'torque': '扭矩明细表'
 }
 
 
@@ -51,6 +52,7 @@ def info(url):
         if input_part_form.validate_on_submit():
             lingjinahao = input_part_form.lingjianhao.data
         else:
+            # 从station的零件号直接查询零件信息，JS通过动态FORM实现该功能对接到此处
             lingjianhao = request.form.get('search_lingjianhao')
         df_pbom = dbo.read_table('pbom')
         df_part = df_pbom.loc[df_pbom['lingjianhao'] == lingjianhao, ]
