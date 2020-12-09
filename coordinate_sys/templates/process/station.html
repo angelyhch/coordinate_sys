@@ -1,7 +1,16 @@
 {% extends 'base_process.html' %}
 
 {% block title %} {{ station }}工位明细 {% endblock title %}
+{% block styles %}
+{{ super() }}
 
+<!--# 自定义式样-->
+<style type="text/css">
+#main_tbody>tr>td{border:3px solid gray}
+
+</style>
+
+{% endblock styles %}
 
 {% block content %}
 <h2>{{ station }}工位明细</h2>

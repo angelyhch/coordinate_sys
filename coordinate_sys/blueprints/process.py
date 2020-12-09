@@ -77,4 +77,7 @@ def station(station):
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
         station_dict[table] = df_tb_st
 
+    # 对搜索出来的数据进行排序，最多的数据排在最上面。
+    station_dict = dict(sorted(station_dict.items(),key=lambda x:(x[1].shape[0]), reverse=True))
+
     return render_template('process/station.html', table_name_dict=table_name_dict, station=station, station_dict=station_dict)
