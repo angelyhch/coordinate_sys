@@ -1,4 +1,4 @@
-from flask import redirect, Blueprint, url_for, render_template, request, flash
+from flask import redirect, Blueprint, url_for, render_template, request, flash, current_app
 from coordinate_sys.forms import UpLoadFileForm
 from coordinate_sys.extensions import cache
 import base64
@@ -36,7 +36,6 @@ def point_select(header_cols=4):
 
 @coordinate_bp.route('/upload_data', methods=['get', 'post'])
 def upload_data():
-    from coordinate_sys import app
     from coordinate_sys.models import read_excel_data, refresh_database
     upload_form = UpLoadFileForm()
 
@@ -45,14 +44,14 @@ def upload_data():
             file_req = request.files.get("upload_file")
             file_ext = os.path.splitext(file_req.filename)[1]
             file_save_name = 'data'+file_ext
-            full_file_path_name = os.path.join(app.config['UPLOAD_PATH'], file_save_name)
+            full_file_path_name = os.path.join(current_app.config.get('UPLOAD_PATH'), file_save_name)
             file_req.save(full_file_path_name)
             last_modify_time1 = os.path.getmtime(full_file_path_name)
             last_modify_time = datetime.fromtimestamp(last_modify_time1)
             flash(f'upload success at {last_modify_time}')
             df = read_excel_data(file_path=full_file_path_name)
             refresh_database(df)
-            return render_template('coordinate/upload_data.html', form=upload_form, file_req=file_req)
+            return redirect('coordinate/upload_data.html', form=upload_form)
         else:
             flash('密码错误！请输入正确口令！')
             return redirect(url_for('coordinate.upload_data'))

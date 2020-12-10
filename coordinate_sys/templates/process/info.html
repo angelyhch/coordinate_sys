@@ -19,8 +19,14 @@
 
 {{ df_html | safe }}
 
-
 <hr>
+{{ render_form(upload_table_form) }}
+<hr>
+    {% for msg in get_flashed_messages() %}
+    <div>
+    <strong><p>{{ msg }}</p></strong>
+    </div>
+    {% endfor %}
 <hr>
 
 {% endblock content %}

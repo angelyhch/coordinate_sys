@@ -1,12 +1,14 @@
-from flask import url_for, render_template, Blueprint, request
+from flask import url_for, render_template, Blueprint, request, flash, redirect, current_app
 import qrcode
-from PIL import Image
+import os
+import sys
+from datetime import datetime
 import base64
 from io import StringIO, BytesIO
 import numpy as np
 from coordinate_sys.extensions import cache
 from coordinate_sys.process_model import dbo
-from coordinate_sys.forms import InputPartForm
+from coordinate_sys.forms import InputPartForm, UploadTableForm
 
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
@@ -45,9 +47,9 @@ def stations():
 
 @process_bp.route('/info/<string:url>', methods=['get', 'post'])
 def info(url):
-    table = url
+    file_req = url
     input_part_form = InputPartForm()
-
+    upload_table_form = UploadTableForm()
     if input_part_form.validate_on_submit() or request.form.get('search_lingjianhao'):
         if input_part_form.validate_on_submit():
             lingjinahao = input_part_form.lingjianhao.data
@@ -58,12 +60,33 @@ def info(url):
         df_part = df_pbom.loc[df_pbom['lingjianhao'] == lingjianhao, ]
         df_part_html = df_part.to_html()
         return df_part_html
+    elif upload_table_form.validate_on_submit():
+        if upload_table_form.upload_password.data == 'baozhang':
+            file_req = request.files.get("upload_table")
+            if file_req.filename.startswith(url):
+                file_ext = os.path.splitext(file_req.filename)[1]
+                file_save_name = url + file_ext
+                full_file_path_name = os.path.join(current_app.config.get('TABLE_UPLOAD_PATH'), file_save_name)
+                file_req.save(full_file_path_name)
+                last_modify_time1 = os.path.getmtime(full_file_path_name)
+                last_modify_time = datetime.fromtimestamp(last_modify_time1)
+                flash(f'upload success at {last_modify_time}')
+
+                dbo.excel_to_table(file_save_name, url, temp_folder=r"static\process_table_upload_temp")
+                flash(f'最新数据更新时间：{datetime.now().isoformat()}')
+                return redirect(url_for('process.info', url=url))
+            else:
+                flash(f'上传文件名错误，请上传【{url}】数据文件！')
+                return redirect(url_for('process.info', url=url))
+        else:
+            flash('密码错误！请输入正确口令！')
+            return redirect(url_for('process.info', url=url))
     else:
-        if table in info_table_list:
-            df = dbo.read_table(table)
-            table_name = table_name_dict[table]
+        if file_req in info_table_list:
+            df = dbo.read_table(file_req)
+            table_name = table_name_dict[file_req]
             df_html = df.to_html()
-            return render_template('process/info.html', input_part_form=input_part_form, df_html=df_html, table=table, table_name=table_name)
+            return render_template('process/info.html', upload_table_form=upload_table_form, input_part_form=input_part_form, df_html=df_html, table=file_req, table_name=table_name)
         else:
             return '<h1> 不是信息表！ </h1>'
 
