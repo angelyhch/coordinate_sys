@@ -53,7 +53,7 @@ def upload_data():
             refresh_database(df)
             return redirect('coordinate/upload_data.html', form=upload_form)
         else:
-            flash('密码错误了！请输入正确口令！')
+            flash('上传不成功，密码错误了！请输入正确口令！')
             return redirect(url_for('coordinate.upload_data'))
     return render_template('coordinate/upload_data.html', form=upload_form)
 

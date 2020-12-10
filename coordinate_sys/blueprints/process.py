@@ -76,10 +76,10 @@ def info(url):
                 flash(f'最新数据更新时间：{datetime.now().isoformat()}')
                 return redirect(url_for('process.info', url=url))
             else:
-                flash(f'上传文件名错误，请上传【{url}】数据文件！')
+                flash(f'更新不成功，上传文件名错误，请上传【{url}】数据文件！')
                 return redirect(url_for('process.info', url=url))
         else:
-            flash('密码错误！请输入正确口令！')
+            flash('更新不成功，密码错误！请输入正确口令！')
             return redirect(url_for('process.info', url=url))
     else:
         if file_req in info_table_list:
