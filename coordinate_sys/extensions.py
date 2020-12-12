@@ -6,6 +6,7 @@ from flask_caching import Cache
 import os
 from sqlalchemy import create_engine, inspect
 import pandas as pd
+import logging
 
 
 toolbar = DebugToolbarExtension()
@@ -41,5 +42,6 @@ class Dbobj:
     def read_table(self, table_name, index_col='index'):
         df_read = pd.read_sql_table(table_name, self.engine, index_col=index_col)
         return df_read
+
 
 

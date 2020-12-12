@@ -2875,4 +2875,60 @@ ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolba
 ¡¾INFO¡¿:2020-12-12T09:56:29>>>>
 ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/process/info/gongju¡¿
 ¡¾INFO¡¿:2020-12-12T09:56:29>>>>
-ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.42335960319121946¡¿
+ip£º¡¾127.0.0.1¡¿; url£º¡¾http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.42335960319121946¡¿INFO--2020-12-12 15:54:28,026--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/
+INFO--2020-12-12 15:54:28,324--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/css/bootstrap.css
+INFO--2020-12-12 15:54:28,363--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/jquery-3.2.1.slim.min.js
+INFO--2020-12-12 15:54:28,367--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/bootstrap.min.js
+INFO--2020-12-12 15:54:28,373--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.js
+INFO--2020-12-12 15:54:28,388--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.tablesorter.js
+INFO--2020-12-12 15:54:28,394--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/toolbar.js
+INFO--2020-12-12 15:54:28,462--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.2134896586427938
+INFO--2020-12-12 15:54:28,467--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/favicon.ico
+INFO--2020-12-12 15:54:28,494--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 15:54:32,530--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 15:54:32,830--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/css/bootstrap.css
+INFO--2020-12-12 15:54:33,116--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.8338318713592564
+INFO--2020-12-12 15:54:33,122--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/favicon.ico
+INFO--2020-12-12 15:54:33,171--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 16:03:55,150--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:03:55,433--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/css/bootstrap.css
+INFO--2020-12-12 16:03:55,542--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.0009596093004687889
+INFO--2020-12-12 16:03:55,558--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/favicon.ico
+INFO--2020-12-12 16:03:55,636--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 16:04:09,621--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+WARNING--2020-12-12 16:04:10,528--process.py--¡¾func¡¿info--¡¾line¡¿79--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:04:10,583--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.7122057171722357
+INFO--2020-12-12 16:04:12,138--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:05:04,607--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/
+INFO--2020-12-12 16:05:04,716--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/jquery-3.2.1.slim.min.js
+INFO--2020-12-12 16:05:04,721--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.js
+INFO--2020-12-12 16:05:04,722--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/bootstrap.min.js
+INFO--2020-12-12 16:05:04,723--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.tablesorter.js
+INFO--2020-12-12 16:05:04,725--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/toolbar.js
+INFO--2020-12-12 16:05:04,762--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.9170789182109397
+INFO--2020-12-12 16:05:04,813--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 16:05:06,122--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:05:06,255--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/css/bootstrap.css
+INFO--2020-12-12 16:05:06,331--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.40893162661031424
+INFO--2020-12-12 16:05:06,429--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 16:05:21,895--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+WARNING--2020-12-12 16:05:22,591--process.py--¡¾func¡¿info--¡¾line¡¿79--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:05:22,646--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.5627910623265765
+INFO--2020-12-12 16:07:04,348--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/
+INFO--2020-12-12 16:07:04,576--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/jquery-3.2.1.slim.min.js
+INFO--2020-12-12 16:07:04,578--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/js/bootstrap.min.js
+INFO--2020-12-12 16:07:04,582--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.js
+INFO--2020-12-12 16:07:04,584--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/jquery.tablesorter.js
+INFO--2020-12-12 16:07:04,587--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/js/toolbar.js
+INFO--2020-12-12 16:07:04,654--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.627448017730224
+INFO--2020-12-12 16:07:04,672--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/favicon.ico
+INFO--2020-12-12 16:07:04,684--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/img/djdt_vertical.png
+INFO--2020-12-12 16:07:05,937--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:07:06,204--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/static/css/bootstrap.css
+INFO--2020-12-12 16:07:06,256--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.6499124804346326
+INFO--2020-12-12 16:07:21,688--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+WARNING--2020-12-12 16:07:22,392--process.py--¡¾func¡¿info--¡¾line¡¿79--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:07:22,457--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.7335196266831588
+INFO--2020-12-12 16:07:24,200--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/process/info/gongju
+INFO--2020-12-12 16:07:24,449--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/_debug_toolbar/static/css/toolbar.css?0.41499675202551656
+INFO--2020-12-12 16:07:24,454--__init__.py--¡¾func¡¿log_ip_url--¡¾line¡¿58--¡¾msg¡¿¡¾ip¡¿127.0.0.1 ¡¾url¡¿http://127.0.0.1:5000/favicon.ico

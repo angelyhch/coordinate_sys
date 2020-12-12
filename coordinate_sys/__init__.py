@@ -6,6 +6,10 @@ from coordinate_sys.blueprints.coordinate import coordinate_bp
 from coordinate_sys.blueprints.process import process_bp
 from coordinate_sys.extensions import db, bootstrap, toolbar, mail, cache, db_inspector
 
+
+
+
+
 #todo:待确认shell环境设置
 
 def register_shell_context(app):
@@ -45,9 +49,10 @@ root_path = app.root_path
 app.config['UPLOAD_PATH'] = os.path.join(root_path, 'static\\data_temp')
 app.config['TABLE_UPLOAD_PATH'] = os.path.join(root_path, 'static\\process_table_upload_temp')
 
+
 @app.before_request
 def log_ip_url():
     ip = request.remote_addr
     url = request.url
 
-    logger.info(f'\nip：【{ip}】; url：【{url}】')
+    logger.info(f'【ip】{ip} 【url】{url}')

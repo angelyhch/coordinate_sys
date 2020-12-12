@@ -52,4 +52,11 @@ index              ...
 ¡¾INFO¡¿:2020-09-30T14:44:31>>>>manual
 ¡¾INFO¡¿:2020-09-30T14:44:31>>>>auto
 ¡¾INFO¡¿:2020-10-07T10:57:24>>>>manual
-¡¾INFO¡¿:2020-10-07T10:57:24>>>>auto
+¡¾INFO¡¿:2020-10-07T10:57:24>>>>autoINFO
+WARNING--2020-12-12 15:42:21,915
+WARNING--2020-12-12 15:42:33,441--logger_class.py
+WARNING--2020-12-12 15:43:15,198--logger_class.py--<module>
+WARNING--2020-12-12 15:43:25,947--logger_class.py--<module>--71--warning1542
+WARNING--2020-12-12 15:44:48,651--logger_class.py--<module>--71--¡¾msg¡¿warning1542
+WARNING--2020-12-12 15:44:58,967--logger_class.py--<module>--71--¡¾msg¡¿warning1542
+INFO--2020-12-12 15:47:12,495--logger_class.py--¡¾func¡¿<module>--¡¾line¡¿25--¡¾msg¡¿alksfjd1547

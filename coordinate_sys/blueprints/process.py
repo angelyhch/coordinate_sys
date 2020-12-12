@@ -1,7 +1,7 @@
 from flask import url_for, render_template, Blueprint, request, flash, redirect, current_app
 import qrcode
 import os
-import sys
+from coordinate_sys.logger_class import logger
 from datetime import datetime
 import base64
 from io import BytesIO
@@ -74,6 +74,10 @@ def info(url):
                 flash(f'upload success at {last_modify_time}')
 
                 dbo.excel_to_table(file_save_name, url, temp_folder=r"static\process_table_upload_temp")
+                ip = request.remote_addr
+                user_url = request.url
+                logger.warn(f'【ip】{ip} 【url】{user_url}')
+
                 flash(f'最新数据更新时间：{datetime.now().isoformat()}')
                 return redirect(url_for('process.info', url=url))
             else:
