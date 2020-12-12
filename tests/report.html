@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>自动测试</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>自动测试</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-11-23 09:38:25</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:09.890442</p>
+<p class='attribute'><strong>Status:</strong> Pass 7 Failure 2</p>
+
+<p class='description'>测试报告描述</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_coordinate.IndexTestCase</td>
+    <td>6</td>
+    <td>5</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',6)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_chart_fig</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: [2020-11-23 09:38:25,039] ERROR in app: Exception on /chart_fig [GET]
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\_compat.py", line 39, in reraise
+    raise value
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\python\coordinate_sys\coordinate_sys\blueprints\coordinate.py", line 57, in chart_fig
+    point_input_upper = point_input.upper()
+AttributeError: 'NoneType' object has no attribute 'upper'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ex1</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.3' class='none'>
+    <td class='failCase'><div class='testcase'>test_ex2</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.3')" >
+        fail</a>
+
+    <div id='div_ft1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.3: Traceback (most recent call last):
+  File "D:\python\coordinate_sys\tests\test_coordinate.py", line 32, in test_ex2
+    self.assertEqual(2, 5, '2 is not greater than 5')
+AssertionError: 2 != 5 : 2 is not greater than 5
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_point_select</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: D:\python\coordinate_sys\coordinate_sys\models.py:189: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])), axis=1)
+D:\python\coordinate_sys\coordinate_sys\models.py:190: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]), axis=1)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_show_data</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_upload_data</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_process.ProcessTestCase</td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',3)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        fail</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "D:\python\coordinate_sys\tests\test_process.py", line 22, in test_info
+    self.assertIn('productor', data)
+AssertionError: 'productor' not found in '&lt;!DOCTYPE html&gt;\n&lt;html &gt;\n  &lt;head&gt;\n    &lt;title&gt;夹具清单表&lt;/title&gt;\n    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;\n    &lt;!-- Bootstrap --&gt;\n&lt;!--    &lt;link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"&gt;--&gt;\n\n    &lt;link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css"&gt;\n  &lt;/head&gt;\n  &lt;body &gt;\n    \n    &lt;div&gt;\n\n    \t&lt;h2&gt;工艺信息系统&lt;/h2&gt;\n    &lt;nav&gt;\n          &lt;a href="/process/"&gt;&lt;strong&gt;工位清单&lt;/strong&gt;|&lt;/a&gt;\n          &lt;a href="/process/info/jig" target="_blank"&gt;夹具表|&lt;/a&gt;\n          &lt;a href="/process/info/part" target="_blank"&gt;零件表|&lt;/a&gt;\n          &lt;a href="/process/info/weldspot" target="_blank"&gt;焊点表|&lt;/a&gt;\n          &lt;a href="/process/info/tujiao" target="_blank"&gt;涂胶明细表|&lt;/a&gt;\n\t&lt;/nav&gt;\n\n\n    &lt;/div&gt;\n&lt;br&gt;\n\n    \n\n\n&lt;hr&gt;\n\n\n&lt;h2&gt;夹具清单表&lt;/h2&gt;\n\n&lt;table border="1" class="dataframe"&gt;\n  &lt;thead&gt;\n    &lt;tr style="text-align: right;"&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;code&lt;/th&gt;\n      &lt;th&gt;夹具名称&lt;/th&gt;\n      &lt;th&gt;制造商&lt;/th&gt;\n      &lt;th&gt;数量&lt;/th&gt;\n      &lt;th&gt;station&lt;/th&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;index&lt;/th&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;&lt;/th&gt;\n      &lt;th&gt;&lt;/th&gt;\n    &lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr&gt;\n      &lt;th&gt;0&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF020L01&lt;/td&gt;\n      &lt;td&gt;侧围内板前段总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-090L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;1&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF020R01&lt;/td&gt;\n      &lt;td&gt;侧围内板前段总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-090R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;2&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF020L01&lt;/td&gt;\n      &lt;td&gt;侧围加强板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-080L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;3&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF020R01&lt;/td&gt;\n      &lt;td&gt;侧围加强板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-080R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;4&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF030L01&lt;/td&gt;\n      &lt;td&gt;侧围前部总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-100L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;5&lt;/th&gt;\n      &lt;td&gt;WJGC62XBF030R01&lt;/td&gt;\n      &lt;td&gt;侧围前部总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-100R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;6&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR010L01&lt;/td&gt;\n      &lt;td&gt;后轮罩外板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;7&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR010R01&lt;/td&gt;\n      &lt;td&gt;后轮罩外板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;8&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR020L01&lt;/td&gt;\n      &lt;td&gt;C柱内板总成合件-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-020L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;9&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR020R01&lt;/td&gt;\n      &lt;td&gt;C柱内板总成合件-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-020R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;10&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR030L01&lt;/td&gt;\n      &lt;td&gt;C柱内板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;11&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR030R01&lt;/td&gt;\n      &lt;td&gt;C柱内板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;12&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR040L01&lt;/td&gt;\n      &lt;td&gt;C柱加强板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;13&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR040R01&lt;/td&gt;\n      &lt;td&gt;C柱加强板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;14&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR050L01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成合件-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;15&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR050R01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成合件-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;16&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR060L01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-060L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;17&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR060R01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-060R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;18&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR070L01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成补焊-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-070L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;19&lt;/th&gt;\n      &lt;td&gt;WJGC62XBR070R01&lt;/td&gt;\n      &lt;td&gt;后侧围内板总成补焊-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-070R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;20&lt;/th&gt;\n      &lt;td&gt;WJGC62XBD010L01&lt;/td&gt;\n      &lt;td&gt;D柱外板总成-左&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;21&lt;/th&gt;\n      &lt;td&gt;WJGC62XBD010R01&lt;/td&gt;\n      &lt;td&gt;D柱外板总成-右&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BSI4-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;22&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA01001&lt;/td&gt;\n      &lt;td&gt;前围分总成010夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;23&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA02001&lt;/td&gt;\n      &lt;td&gt;前围分总成020夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;24&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA03001&lt;/td&gt;\n      &lt;td&gt;前围总成030夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;25&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA04001&lt;/td&gt;\n      &lt;td&gt;前围总成040夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;26&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA05001&lt;/td&gt;\n      &lt;td&gt;前围总成050夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;27&lt;/th&gt;\n      &lt;td&gt;WJGC62XDA06001&lt;/td&gt;\n      &lt;td&gt;前围总成060夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1DA4-060&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;28&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR010L01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成010-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;29&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR010R01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成010-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;30&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR020L01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成020-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-020L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;31&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR020R01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成020-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-020R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;32&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR030L01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成030-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;33&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR030R01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成030-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;34&lt;/th&gt;\n      &lt;td&gt;WJGC62XFR040L01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成040-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;35&lt;/th&gt;\n      &lt;td&gt;WJGC62X-FR040R01&lt;/td&gt;\n      &lt;td&gt;前纵梁总成040-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FU4-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;36&lt;/th&gt;\n      &lt;td&gt;WJGC62XRR010L01&lt;/td&gt;\n      &lt;td&gt;后纵梁总成010-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RR4-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;37&lt;/th&gt;\n      &lt;td&gt;WJGC62XRR010R01&lt;/td&gt;\n      &lt;td&gt;后纵梁总成010-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RR4-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;38&lt;/th&gt;\n      &lt;td&gt;WJGC62XRR020L01&lt;/td&gt;\n      &lt;td&gt;后纵梁总成020-左夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RR4-020L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;39&lt;/th&gt;\n      &lt;td&gt;WJGC62XRR020R01&lt;/td&gt;\n      &lt;td&gt;后纵梁总成020-右夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RR4-020R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;40&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF02001&lt;/td&gt;\n      &lt;td&gt;后地板组件总成010夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;41&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF02001&lt;/td&gt;\n      &lt;td&gt;后地板组件总成020夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;42&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF03001&lt;/td&gt;\n      &lt;td&gt;后地板分总成030夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;43&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF04001&lt;/td&gt;\n      &lt;td&gt;后地板骨架总成040夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;44&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF05001&lt;/td&gt;\n      &lt;td&gt;后地板骨架总成050夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;45&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF06001&lt;/td&gt;\n      &lt;td&gt;后地板总成060夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-060&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;46&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF07001&lt;/td&gt;\n      &lt;td&gt;后地板总成070夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-070&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;47&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF08001&lt;/td&gt;\n      &lt;td&gt;后地板总成080夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-080&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;48&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF09001&lt;/td&gt;\n      &lt;td&gt;后地板总成090夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-090&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;49&lt;/th&gt;\n      &lt;td&gt;WJGC62XRF10001&lt;/td&gt;\n      &lt;td&gt;后地板总成100夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RF4-100&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;50&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF01001&lt;/td&gt;\n      &lt;td&gt;前地板分总成010夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;51&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF02001&lt;/td&gt;\n      &lt;td&gt;前地板分总成020夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;52&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF03001&lt;/td&gt;\n      &lt;td&gt;前地板分总成030夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;53&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF04001&lt;/td&gt;\n      &lt;td&gt;前地板分总成040夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;54&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF05001&lt;/td&gt;\n      &lt;td&gt;前地板总成050夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;55&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF06001&lt;/td&gt;\n      &lt;td&gt;前地板总成060夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-060&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;56&lt;/th&gt;\n      &lt;td&gt;WJGC62XFF07001&lt;/td&gt;\n      &lt;td&gt;前地板总成070夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FF4-070&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;57&lt;/th&gt;\n      &lt;td&gt;WJGC62XHP01001&lt;/td&gt;\n      &lt;td&gt;空气室板总成010夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HP4-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;58&lt;/th&gt;\n      &lt;td&gt;WJGC62XHP02001&lt;/td&gt;\n      &lt;td&gt;空气室板总成020夹具&lt;/td&gt;\n      &lt;td&gt;卓立腾飞&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HP4-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;59&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL01001&lt;/td&gt;\n      &lt;td&gt;尾门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;60&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL02001&lt;/td&gt;\n      &lt;td&gt;尾门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;61&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL02501&lt;/td&gt;\n      &lt;td&gt;尾门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-025&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;62&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL03001&lt;/td&gt;\n      &lt;td&gt;尾门外板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;63&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL03501&lt;/td&gt;\n      &lt;td&gt;尾门外板补焊夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-035&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;64&lt;/th&gt;\n      &lt;td&gt;WJGG1DL04001&lt;/td&gt;\n      &lt;td&gt;尾门外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;65&lt;/th&gt;\n      &lt;td&gt;WJGG1DL04101&lt;/td&gt;\n      &lt;td&gt;尾门内板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;66&lt;/th&gt;\n      &lt;td&gt;WJGG1DL05101&lt;/td&gt;\n      &lt;td&gt;尾门总成中转台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;67&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL05001&lt;/td&gt;\n      &lt;td&gt;尾门滚边夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;68&lt;/th&gt;\n      &lt;td&gt;WJGC62XDL08001&lt;/td&gt;\n      &lt;td&gt;尾门总成补焊夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BD1-060&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;69&lt;/th&gt;\n      &lt;td&gt;WJGC62XHD01001&lt;/td&gt;\n      &lt;td&gt;发动机盖内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HD1-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;70&lt;/th&gt;\n      &lt;td&gt;WJGC62XHD01501&lt;/td&gt;\n      &lt;td&gt;发动机盖内板补焊夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HD1-015&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;71&lt;/th&gt;\n      &lt;td&gt;WJGG1HD04101&lt;/td&gt;\n      &lt;td&gt;发盖外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HD1-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;72&lt;/th&gt;\n      &lt;td&gt;WJGG1HD04201&lt;/td&gt;\n      &lt;td&gt;发盖内板总成上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HD1-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;73&lt;/th&gt;\n      &lt;td&gt;WJGC62XHD02001&lt;/td&gt;\n      &lt;td&gt;发动机盖滚边夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1HD1-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;74&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD010L01&lt;/td&gt;\n      &lt;td&gt;左前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;75&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD020L01&lt;/td&gt;\n      &lt;td&gt;左前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-020L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;76&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD030L01&lt;/td&gt;\n      &lt;td&gt;左前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;77&lt;/th&gt;\n      &lt;td&gt;WJGG1FD041L01&lt;/td&gt;\n      &lt;td&gt;左前门外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;78&lt;/th&gt;\n      &lt;td&gt;WJGG1FD042L01&lt;/td&gt;\n      &lt;td&gt;左前门内板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;79&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD010R01&lt;/td&gt;\n      &lt;td&gt;右前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;80&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD020R01&lt;/td&gt;\n      &lt;td&gt;右前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-020R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;81&lt;/th&gt;\n      &lt;td&gt;WJGC62XFD030R01&lt;/td&gt;\n      &lt;td&gt;右前门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;82&lt;/th&gt;\n      &lt;td&gt;WJGG1FD041R01&lt;/td&gt;\n      &lt;td&gt;右前门外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;83&lt;/th&gt;\n      &lt;td&gt;WJGG1FD042R01&lt;/td&gt;\n      &lt;td&gt;右前门内板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1FD1-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;84&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD010L01&lt;/td&gt;\n      &lt;td&gt;左后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;85&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD015L01&lt;/td&gt;\n      &lt;td&gt;左后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-015L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;86&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD020L01&lt;/td&gt;\n      &lt;td&gt;左后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-020L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;87&lt;/th&gt;\n      &lt;td&gt;WJGG1RD041L01&lt;/td&gt;\n      &lt;td&gt;左后门外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;88&lt;/th&gt;\n      &lt;td&gt;WJGG1RD042L01&lt;/td&gt;\n      &lt;td&gt;左后门内板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-040L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;89&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD030L01&lt;/td&gt;\n      &lt;td&gt;左后门滚边夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;90&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD010R01&lt;/td&gt;\n      &lt;td&gt;右后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;91&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD015R01&lt;/td&gt;\n      &lt;td&gt;右后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-015R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;92&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD020R01&lt;/td&gt;\n      &lt;td&gt;右后门内板焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD1-020R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;93&lt;/th&gt;\n      &lt;td&gt;WJGG1RD041R01&lt;/td&gt;\n      &lt;td&gt;右后门外板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;94&lt;/th&gt;\n      &lt;td&gt;WJGG1RD042R01&lt;/td&gt;\n      &lt;td&gt;右后门内板上件台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-040R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;95&lt;/th&gt;\n      &lt;td&gt;WJGC62XRD030R01&lt;/td&gt;\n      &lt;td&gt;右后门滚边夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RD2-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;96&lt;/th&gt;\n      &lt;td&gt;WJGC62XRA01001&lt;/td&gt;\n      &lt;td&gt;顶盖焊接夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RA3-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;97&lt;/th&gt;\n      &lt;td&gt;WJGC62XRA02001&lt;/td&gt;\n      &lt;td&gt;顶盖弧焊夹具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RA3-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;98&lt;/th&gt;\n      &lt;td&gt;WJGC62XRA03001&lt;/td&gt;\n      &lt;td&gt;顶盖补焊台&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1RA3-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;99&lt;/th&gt;\n      &lt;td&gt;——&lt;/td&gt;\n      &lt;td&gt;四门安装辅具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;None&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;100&lt;/th&gt;\n      &lt;td&gt;——&lt;/td&gt;\n      &lt;td&gt;前盖安装辅具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;4&lt;/td&gt;\n      &lt;td&gt;None&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;101&lt;/th&gt;\n      &lt;td&gt;——&lt;/td&gt;\n      &lt;td&gt;后盖安装辅具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;None&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;102&lt;/th&gt;\n      &lt;td&gt;——&lt;/td&gt;\n      &lt;td&gt;翼子板安装辅具&lt;/td&gt;\n      &lt;td&gt;安徽瑞祥&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;None&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;103&lt;/th&gt;\n      &lt;td&gt;WJGC62XER01001&lt;/td&gt;\n      &lt;td&gt;机舱010定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;104&lt;/th&gt;\n      &lt;td&gt;WJGC62XER01002&lt;/td&gt;\n      &lt;td&gt;机舱010定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-010&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;105&lt;/th&gt;\n      &lt;td&gt;WJGG1ER03001&lt;/td&gt;\n      &lt;td&gt;机舱030定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;106&lt;/th&gt;\n      &lt;td&gt;WJGC62XER05001&lt;/td&gt;\n      &lt;td&gt;机舱050定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;107&lt;/th&gt;\n      &lt;td&gt;WJGG1ER07001&lt;/td&gt;\n      &lt;td&gt;机舱070定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-070&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;108&lt;/th&gt;\n      &lt;td&gt;WJGG1UB03001&lt;/td&gt;\n      &lt;td&gt;下车身UB030定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;109&lt;/th&gt;\n      &lt;td&gt;WJGG1UB04001&lt;/td&gt;\n      &lt;td&gt;下车身UB040定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;110&lt;/th&gt;\n      &lt;td&gt;WJGG1UB05001&lt;/td&gt;\n      &lt;td&gt;下车身UB050定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;111&lt;/th&gt;\n      &lt;td&gt;WJGG1UB07001&lt;/td&gt;\n      &lt;td&gt;下车身UB070定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-070&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;112&lt;/th&gt;\n      &lt;td&gt;WJGG1UB08001&lt;/td&gt;\n      &lt;td&gt;下车身UB080定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-080&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;113&lt;/th&gt;\n      &lt;td&gt;WJGG1UB09001&lt;/td&gt;\n      &lt;td&gt;下车身UB090定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-090&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;114&lt;/th&gt;\n      &lt;td&gt;WJGG1UB10001&lt;/td&gt;\n      &lt;td&gt;下车身UB100定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-100&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;115&lt;/th&gt;\n      &lt;td&gt;WJGG1MB03001&lt;/td&gt;\n      &lt;td&gt;主线MB030定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;116&lt;/th&gt;\n      &lt;td&gt;WJGG1MB11001&lt;/td&gt;\n      &lt;td&gt;主线MB110定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-110&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;117&lt;/th&gt;\n      &lt;td&gt;WJGG1MB14001&lt;/td&gt;\n      &lt;td&gt;主线MB140定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-140&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;118&lt;/th&gt;\n      &lt;td&gt;WJGC62XMB14001&lt;/td&gt;\n      &lt;td&gt;主线MB140 GATE-C62X夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-140&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;119&lt;/th&gt;\n      &lt;td&gt;WJGC62XMB14002&lt;/td&gt;\n      &lt;td&gt;主线MB140 GATE-C62X夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-140&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;120&lt;/th&gt;\n      &lt;td&gt;WJGG1MB16001&lt;/td&gt;\n      &lt;td&gt;主线MB160定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-160&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;121&lt;/th&gt;\n      &lt;td&gt;WJGG1MB18001&lt;/td&gt;\n      &lt;td&gt;主线MB180定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-180&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;122&lt;/th&gt;\n      &lt;td&gt;WJGG1MB19001&lt;/td&gt;\n      &lt;td&gt;主线MB190定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-190&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;123&lt;/th&gt;\n      &lt;td&gt;WJGG1MB20001&lt;/td&gt;\n      &lt;td&gt;主线MB200定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;124&lt;/th&gt;\n      &lt;td&gt;WJGG1MB21001&lt;/td&gt;\n      &lt;td&gt;主线MB210定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-210&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;125&lt;/th&gt;\n      &lt;td&gt;WJGG1MB22001&lt;/td&gt;\n      &lt;td&gt;主线MB220定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-220&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;126&lt;/th&gt;\n      &lt;td&gt;WJGG1MB25001&lt;/td&gt;\n      &lt;td&gt;主线MB250定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-250&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;127&lt;/th&gt;\n      &lt;td&gt;WJGG1MB26001&lt;/td&gt;\n      &lt;td&gt;主线MB260定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-260&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;128&lt;/th&gt;\n      &lt;td&gt;WJGG1MB27001&lt;/td&gt;\n      &lt;td&gt;主线MB270定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-270&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;129&lt;/th&gt;\n      &lt;td&gt;WJGG1MB28001&lt;/td&gt;\n      &lt;td&gt;主线MB280定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-280&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;130&lt;/th&gt;\n      &lt;td&gt;WJGG1MB29001&lt;/td&gt;\n      &lt;td&gt;主线MB290定位夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-290&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;131&lt;/th&gt;\n      &lt;td&gt;WJGC62XMB29001&lt;/td&gt;\n      &lt;td&gt;铰链安装夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-290&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;132&lt;/th&gt;\n      &lt;td&gt;WJGC62XMB29002&lt;/td&gt;\n      &lt;td&gt;铰链安装夹具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-290&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;133&lt;/th&gt;\n      &lt;td&gt;WGRG1ER02001&lt;/td&gt;\n      &lt;td&gt;机舱020搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-020&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;134&lt;/th&gt;\n      &lt;td&gt;WGRG1ER03001&lt;/td&gt;\n      &lt;td&gt;机舱030定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;135&lt;/th&gt;\n      &lt;td&gt;WGRG1ER03002&lt;/td&gt;\n      &lt;td&gt;机舱030定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;136&lt;/th&gt;\n      &lt;td&gt;WGRG1ER04001&lt;/td&gt;\n      &lt;td&gt;机舱040搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-040&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;137&lt;/th&gt;\n      &lt;td&gt;WGRC62XER05001&lt;/td&gt;\n      &lt;td&gt;机舱050定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;138&lt;/th&gt;\n      &lt;td&gt;WGRG1ER06001&lt;/td&gt;\n      &lt;td&gt;机舱060搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-060&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;139&lt;/th&gt;\n      &lt;td&gt;WGRG1ER08001&lt;/td&gt;\n      &lt;td&gt;机舱080搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-080&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;140&lt;/th&gt;\n      &lt;td&gt;WGRG1ER09001&lt;/td&gt;\n      &lt;td&gt;机舱090搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1ER3-080&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;141&lt;/th&gt;\n      &lt;td&gt;WGRG1UB03001&lt;/td&gt;\n      &lt;td&gt;下车体030搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;142&lt;/th&gt;\n      &lt;td&gt;WGRC62XUB03001&lt;/td&gt;\n      &lt;td&gt;下车体030定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-030&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;143&lt;/th&gt;\n      &lt;td&gt;WGRC62XUB05001&lt;/td&gt;\n      &lt;td&gt;下车体050定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-050&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;144&lt;/th&gt;\n      &lt;td&gt;WGRC62XUB07001&lt;/td&gt;\n      &lt;td&gt;下车体070定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1UB-070&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;145&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB11001&lt;/td&gt;\n      &lt;td&gt;主线110顶盖横梁搬运预搭扣抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-110&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;146&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB11002&lt;/td&gt;\n      &lt;td&gt;主线110顶盖后横梁搬运预搭扣抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-110&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;147&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB11003&lt;/td&gt;\n      &lt;td&gt;主线110左侧围总成搬运预搭扣抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-110&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;148&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB11004&lt;/td&gt;\n      &lt;td&gt;主线110右侧围总成搬运预搭扣抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-110&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;149&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB21001&lt;/td&gt;\n      &lt;td&gt;顶盖总成搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;150&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB21002&lt;/td&gt;\n      &lt;td&gt;顶盖总成搬运抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;151&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB21003&lt;/td&gt;\n      &lt;td&gt;顶盖总成定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;152&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB25001&lt;/td&gt;\n      &lt;td&gt;顶盖总成定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;153&lt;/th&gt;\n      &lt;td&gt;WGRC62XMB25002&lt;/td&gt;\n      &lt;td&gt;顶盖总成定位抓具&lt;/td&gt;\n      &lt;td&gt;君屹&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1MB-200&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;154&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS020L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;155&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS030L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;156&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS040L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;157&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS050L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;158&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS060L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;159&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS070L01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;160&lt;/th&gt;\n      &lt;td&gt;WGRG1BS010L01&lt;/td&gt;\n      &lt;td&gt;侧围外板搬运抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;161&lt;/th&gt;\n      &lt;td&gt;WJGG1BS010L01&lt;/td&gt;\n      &lt;td&gt;侧围外板对中台&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;162&lt;/th&gt;\n      &lt;td&gt;WGAC62XBS010L01&lt;/td&gt;\n      &lt;td&gt;侧围外板料架库&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;2&lt;/td&gt;\n      &lt;td&gt;W1BS1-010L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;163&lt;/th&gt;\n      &lt;td&gt;WLPG1BS030L01&lt;/td&gt;\n      &lt;td&gt;人工踏台&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;164&lt;/th&gt;\n      &lt;td&gt;WGPG1BS030L01&lt;/td&gt;\n      &lt;td&gt;台车下线小车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;165&lt;/th&gt;\n      &lt;td&gt;WSSC62XBS050L01&lt;/td&gt;\n      &lt;td&gt;涂胶钢构&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;166&lt;/th&gt;\n      &lt;td&gt;WRPC62XBS050L01&lt;/td&gt;\n      &lt;td&gt;自动涂胶系统&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;167&lt;/th&gt;\n      &lt;td&gt;WSLG1BS050L01&lt;/td&gt;\n      &lt;td&gt;侧围内板滑台夹具&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;168&lt;/th&gt;\n      &lt;td&gt;WGRG1BS050L01&lt;/td&gt;\n      &lt;td&gt;侧围内板总成抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;169&lt;/th&gt;\n      &lt;td&gt;WGRG1BS080L01&lt;/td&gt;\n      &lt;td&gt;侧围总成抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-080L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;170&lt;/th&gt;\n      &lt;td&gt;WGRG1BS090L01&lt;/td&gt;\n      &lt;td&gt;侧围上件抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-090L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;171&lt;/th&gt;\n      &lt;td&gt;WPAG1BS090L01&lt;/td&gt;\n      &lt;td&gt;侧围总成下线小车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;2&lt;/td&gt;\n      &lt;td&gt;W1BS1-090L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;172&lt;/th&gt;\n      &lt;td&gt;WCVG1BSL01&lt;/td&gt;\n      &lt;td&gt;固定高速辊床&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;10&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;173&lt;/th&gt;\n      &lt;td&gt;WTMG1BSL01&lt;/td&gt;\n      &lt;td&gt;移行机&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030L&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;174&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS020R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;175&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS030R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;176&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS040R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;177&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS050R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;178&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS060R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;179&lt;/th&gt;\n      &lt;td&gt;WGPC62XBS070R01&lt;/td&gt;\n      &lt;td&gt;侧围台车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;180&lt;/th&gt;\n      &lt;td&gt;WGRG1BS010R01&lt;/td&gt;\n      &lt;td&gt;侧围外板搬运抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;181&lt;/th&gt;\n      &lt;td&gt;WJGG1BS010R01&lt;/td&gt;\n      &lt;td&gt;侧围外板对中台&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;182&lt;/th&gt;\n      &lt;td&gt;WGAC62XBS010R01&lt;/td&gt;\n      &lt;td&gt;侧围外板料架库&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;2&lt;/td&gt;\n      &lt;td&gt;W1BS1-010R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;183&lt;/th&gt;\n      &lt;td&gt;WLPG1BS030R01&lt;/td&gt;\n      &lt;td&gt;人工踏台&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;184&lt;/th&gt;\n      &lt;td&gt;WGPG1BS030R01&lt;/td&gt;\n      &lt;td&gt;台车下线小车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;185&lt;/th&gt;\n      &lt;td&gt;WSSC62XBS050R01&lt;/td&gt;\n      &lt;td&gt;涂胶钢构&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;186&lt;/th&gt;\n      &lt;td&gt;WRPC62XBS050R01&lt;/td&gt;\n      &lt;td&gt;自动涂胶系统&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;187&lt;/th&gt;\n      &lt;td&gt;WSLG1BS050R01&lt;/td&gt;\n      &lt;td&gt;侧围内板滑台夹具&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;188&lt;/th&gt;\n      &lt;td&gt;WGRG1BS050R01&lt;/td&gt;\n      &lt;td&gt;侧围内板总成抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-050R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;189&lt;/th&gt;\n      &lt;td&gt;WGRG1BS080R01&lt;/td&gt;\n      &lt;td&gt;侧围总成抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-080R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;190&lt;/th&gt;\n      &lt;td&gt;WGRG1BS090R01&lt;/td&gt;\n      &lt;td&gt;侧围上件抓手&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-090R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;191&lt;/th&gt;\n      &lt;td&gt;WPAG1BS090R01&lt;/td&gt;\n      &lt;td&gt;侧围总成下线小车&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;2&lt;/td&gt;\n      &lt;td&gt;W1BS1-090R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;192&lt;/th&gt;\n      &lt;td&gt;WCVG1BSR01&lt;/td&gt;\n      &lt;td&gt;固定高速辊床&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;10&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n    &lt;tr&gt;\n      &lt;th&gt;193&lt;/th&gt;\n      &lt;td&gt;WTMG1BSR01&lt;/td&gt;\n      &lt;td&gt;移行机&lt;/td&gt;\n      &lt;td&gt;中汽工程&lt;/td&gt;\n      &lt;td&gt;1&lt;/td&gt;\n      &lt;td&gt;W1BS1-030R&lt;/td&gt;\n    &lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n\n\n&lt;hr&gt;\n&lt;hr&gt;\n\n\n\n    \n\t\n&lt;!--    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;--&gt;\n&lt;!--    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"&gt;&lt;/script&gt;--&gt;\n    &lt;script src="/static/js/jquery-3.2.1.slim.min.js"&gt;&lt;/script&gt;\n    &lt;script src="/static/js/bootstrap.min.js"&gt;&lt;/script&gt;\n\n\n  &lt;/body&gt;\n&lt;/html&gt;\n'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_station</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\sqlalchemy\dialects\mysql\reflection.py:182: SAWarning: Unknown column definition '  `涂胶直径'
+  util.warn("Unknown column definition %r" % line)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\sqlalchemy\dialects\mysql\reflection.py:62: SAWarning: Unknown schema content: '（mm）` text,'
+  util.warn("Unknown schema content: %r" % line)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\sqlalchemy\dialects\mysql\reflection.py:182: SAWarning: Unknown column definition '  `涂胶长度'
+  util.warn("Unknown column definition %r" % line)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\sqlalchemy\dialects\mysql\reflection.py:182: SAWarning: Unknown column definition '  `是否有辅具'
+  util.warn("Unknown column definition %r" % line)
+C:\Users\Administrator\AppData\Local\Programs\Python\Python38\lib\site-packages\sqlalchemy\dialects\mysql\reflection.py:62: SAWarning: Unknown schema content: '或涂胶导向` text,'
+  util.warn("Unknown schema content: %r" % line)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_stations</div></td>
+    <td colspan='5' align='center'>pass</td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>9</td>
+    <td>7</td>
+    <td>2</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
