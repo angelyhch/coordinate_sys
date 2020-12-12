@@ -26,7 +26,7 @@ def index():
 
 
 @coordinate_bp.route('/point_select')
-# @cache.cached(timeout=60*30)
+@cache.cached(timeout=60*30)
 def point_select(header_cols=4):
     vin_list_all = md.read_database().columns.to_list()[header_cols:]
     df_warn = md.warning_point()

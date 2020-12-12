@@ -4,7 +4,7 @@ import os
 import sys
 from datetime import datetime
 import base64
-from io import StringIO, BytesIO
+from io import BytesIO
 import numpy as np
 from coordinate_sys.extensions import cache
 from coordinate_sys.process_model import dbo
@@ -13,7 +13,7 @@ from coordinate_sys.forms import InputPartForm, UploadTableForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'daoruyanzhengjilu', 'muju']
+info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'daoruyanzhengjilu', 'gongju', 'muju']
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
@@ -23,7 +23,8 @@ table_name_dict = {
     'muju': '模具明细表',
     'jig_records': '夹具履历表',
     'co2': 'CO2焊明细表',
-    'torque': '扭矩明细表'
+    'torque': '扭矩明细表',
+    'gongju': '工具台账表'
 }
 
 
