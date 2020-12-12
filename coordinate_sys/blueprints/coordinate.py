@@ -95,3 +95,5 @@ def warning_point():
     data_html = df_warn.to_html()
     return render_template('coordinate/warning_point.html', data_html=data_html)
 
+
+# 试试coordinate git
