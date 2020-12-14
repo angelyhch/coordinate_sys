@@ -8,12 +8,20 @@
 <style type="text/css">
 #main_tbody>tr>td{border:3px solid gray}
 
+.bt_null_rows_active{
+	background-color:orange;
+	font-weight:900;
+}
+
 </style>
 
 {% endblock styles %}
 
 {% block content %}
 <h2>{{ station }}工位明细</h2>
+<input type="button" id="bt_null_rows_hide" class="bt_null_rows" onclick="null_rows_hide()" value="隐藏空数据源">
+<input type="button" id="bt_null_rows_show" class="bt_null_rows" onclick="null_rows_show()" value="显示所有数据源">
+
 <table border="5">
 	<thead>
 		<th>项目</th>
@@ -47,10 +55,33 @@
 
 {% block scripts %}
 	{{ super() }}
+
+
+<!--隐藏显示无数据内容-->
 <script>
+
+	function null_rows_hide(){
+		null_rows = $('#main_tbody > tr').filter(function(index){return ($(this).children().filter(":nth-child(2)").text() == 0) });
+		null_rows.each(function(index){$(this).hide()});
+		$("#bt_null_rows_hide").addClass("bt_null_rows_active");
+		$("#bt_null_rows_show").removeClass("bt_null_rows_active");
+	}
+
+	function null_rows_show(){
+		null_rows = $('#main_tbody > tr').filter(function(index){return ($(this).children().filter(":nth-child(2)").text() == 0) });
+		null_rows.each(function(index){$(this).show()});
+		$("#bt_null_rows_show").addClass("bt_null_rows_active");
+		$("#bt_null_rows_hide").removeClass("bt_null_rows_active");
+	}
+
+
+</script>
+
+
+
 <!--增加零件超链接查询BOM功能  连接到info/part页面-->
+<script>
 	$(document).ready(function(){
-		// alert("try alert")
 
 		part_td = $("#main_tbody tr :contains(零部件清单表)").siblings(":contains(lingjianhao)")
 
@@ -67,8 +98,7 @@
 				
 				// 取得要提交的参数
 				var my_val = this.innerText;
-				// var my_val = 'A00085311';
-				// 取得要提交的页面URL，待确认是否要带引号
+				// 取得要提交的页面URL，注意是否要带引号
 				var action = "{{ url_for('process.info', _external=True, url='part', _method='POST') }}";
 				// var action = "https://www.runoob.com";
 
@@ -93,10 +123,7 @@
 
 			})
 		})
-
 		})
-
-
 	})
 
 </script>
