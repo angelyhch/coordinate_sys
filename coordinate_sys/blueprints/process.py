@@ -13,7 +13,7 @@ from coordinate_sys.forms import InputPartForm, UploadTableForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'daoruyanzhengjilu', 'gongju', 'muju']
+info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
@@ -24,7 +24,8 @@ table_name_dict = {
     'jig_records': '夹具履历表',
     'co2': 'CO2焊明细表',
     'torque': '扭矩明细表',
-    'gongju': '工具台账表'
+    'gongju': '工具台账表',
+    'shebeilvli': '设备履历表'
 }
 
 
