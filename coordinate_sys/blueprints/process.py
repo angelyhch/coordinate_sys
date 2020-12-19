@@ -13,16 +13,18 @@ from coordinate_sys.forms import InputPartForm, UploadTableForm
 
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
-info_table_list = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
+info_table_list_0 = ['jig', 'jig_records', 'part', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
+info_table_list = [(item+'_view') for item in info_table_list_0]
+
 table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
     'weldspot': '焊点清单表',
-    'daoruyanzhengjilu': '车型导入验证记录',
+    'daoruyanzhengjilu_view': '车型导入验证记录',
     'tujiao': '涂胶明细表',
     'muju': '模具明细表',
     'jig_records': '夹具履历表',
-    'co2': 'CO2焊明细表',
+    'co2': 'co2焊明细表',
     'torque': '扭矩明细表',
     'gongju': '工具台账表',
     'shebeilvli': '设备履历表'
@@ -40,7 +42,7 @@ def stations():
     # 最后要用decode转出字符串,因为img标签里存放的是字符串。
     qr_img_data = base64.b64encode(qr_buffer.getvalue()).decode()
 
-    station_table = dbo.read_table('station')
+    station_table = dbo.read_table('station_view')
     station_header = list(station_table)
     station_list = np.array(station_table).tolist()
 
@@ -88,11 +90,12 @@ def info(url):
             flash('更新不成功，密码错误！请输入正确口令！')
             return redirect(url_for('process.info', url=url))
     else:
-        if file_req in info_table_list:
-            df = dbo.read_table(file_req)
+        file_req_view = file_req + '_view'
+        if file_req_view in info_table_list:
+            df = dbo.read_table(file_req_view)
             table_name = table_name_dict[file_req]
             df_html = df.to_html()
-            return render_template('process/info.html', upload_table_form=upload_table_form, input_part_form=input_part_form, df_html=df_html, table=file_req, table_name=table_name)
+            return render_template('process/info.html', upload_table_form=upload_table_form, input_part_form=input_part_form, df_html=df_html, table=file_req_view, table_name=table_name)
         else:
             return '<h1> 不是信息表！ </h1>'
 
@@ -107,6 +110,6 @@ def station(station):
         station_dict[table] = df_tb_st
 
     # 对搜索出来的数据进行排序，最多的数据排在最上面。
-    station_dict = dict(sorted(station_dict.items(),key=lambda x:(x[1].shape[0]), reverse=True))
+    station_dict = dict(sorted(station_dict.items(), key=lambda x:(x[1].shape[0]), reverse=True))
 
     return render_template('process/station.html', table_name_dict=table_name_dict, station=station, station_dict=station_dict)
