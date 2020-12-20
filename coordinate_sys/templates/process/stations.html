@@ -17,6 +17,7 @@
 			<th>{{ head }}</th>
 			{% endfor %}
 			<th>工位链接</th>
+			<th>工位权重</th>
 		</tr>
 	</thead>
 
@@ -28,7 +29,7 @@
 				<td>{{ col }}</td>
 			{% endfor  %}
 			<td><a href="{{ url_for('process.station', station=row[0]) }}" target="_blank" title="点击查看工位详细内容">{{ row[1] }}</a></td>
-
+			<td class="text-center "><strong> {{ station_weight_dict[row[0]] }}</strong></td>
 		</tr>
 
 		{% endfor %}

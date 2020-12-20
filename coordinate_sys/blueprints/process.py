@@ -20,7 +20,7 @@ table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
     'weldspot': '焊点清单表',
-    'daoruyanzhengjilu_view': '车型导入验证记录',
+    'daoruyanzhengjilu': '车型导入验证记录',
     'tujiao': '涂胶明细表',
     'muju': '模具明细表',
     'jig_records': '夹具履历表',
@@ -29,11 +29,25 @@ table_name_dict = {
     'gongju': '工具台账表',
     'shebeilvli': '设备履历表'
 }
+tableView_name_dict = dict((item[0]+'_view', item[1]) for item in table_name_dict.items())
 
 
+#todo: 此部分数据给stations用，后续要转化为数据库内部查询，直接在station_view里自动查询出各个station的权重。
+station_table = dbo.read_table('station_view')
+station_header = list(station_table)
+station_list = np.array(station_table).tolist()
+station_weight_dict = {}
+for row in station_list:
+    station_name = row[0]
+    station_weight = 0
+    for table in info_table_list:
+        df_tb = dbo.read_table(table)
+        df_tb_st = df_tb.loc[df_tb['station'] == station_name,]
+        item_nums = df_tb_st.shape[0]  # station 各表格查询数量
+        station_weight += item_nums
+    station_weight_dict[station_name] = station_weight
 @process_bp.route('/')
 def stations():
-
     url = request.url
     qr_url = qrcode.make(url)
     qr_buffer = BytesIO()
@@ -42,11 +56,9 @@ def stations():
     # 最后要用decode转出字符串,因为img标签里存放的是字符串。
     qr_img_data = base64.b64encode(qr_buffer.getvalue()).decode()
 
-    station_table = dbo.read_table('station_view')
-    station_header = list(station_table)
-    station_list = np.array(station_table).tolist()
-
-    return render_template('process/stations.html', qr_img_data=qr_img_data, station_header=station_header, station_list=station_list)
+    return render_template('process/stations.html', qr_img_data=qr_img_data,
+                           station_header=station_header, station_list=station_list,
+                           station_weight_dict=station_weight_dict)
 
 
 @process_bp.route('/info/<string:url>', methods=['get', 'post'])
@@ -112,4 +124,4 @@ def station(station):
     # 对搜索出来的数据进行排序，最多的数据排在最上面。
     station_dict = dict(sorted(station_dict.items(), key=lambda x:(x[1].shape[0]), reverse=True))
 
-    return render_template('process/station.html', table_name_dict=table_name_dict, station=station, station_dict=station_dict)
+    return render_template('process/station.html', tableView_name_dict=tableView_name_dict, station=station, station_dict=station_dict)
