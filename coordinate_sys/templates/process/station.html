@@ -18,7 +18,23 @@
 {% endblock styles %}
 
 {% block content %}
-<h2>{{ station }}工位明细</h2>
+<h2>{{ station }}工位明细
+	<span text="text-info">
+		<small>
+			<small>
+				<small>
+					<script type="text/javascript">
+					 var date = new Date();
+					 document.write("【----查询时间：" + date.getFullYear() + "年" + (date.getMonth() + 1) + "月" +
+					  date.getDate() + "日" + " 星期" + "日一二三四五六".charAt(date.getDay()) + "】");
+
+					</script>
+				</small>
+			</small>
+		</small>
+	</span>
+</h2>
+
 <input type="button" id="bt_null_rows_hide" class="bt_null_rows" onclick="null_rows_hide()" value="隐藏空数据源">
 <input type="button" id="bt_null_rows_show" class="bt_null_rows" onclick="null_rows_show()" value="显示所有数据源">
 
