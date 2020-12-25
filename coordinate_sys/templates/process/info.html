@@ -20,6 +20,7 @@
 {{ df_html | safe }}
 
 <hr>
+<p class="text-info">上传文件名请以 <strong> {{ table[:-5] }} </strong> 开头，格式：【<strong>{{ table[:-5] }}</strong>?????】，示例：【<strong>{{ table[:-5] }}</strong>20201225.xlsx】</p>
 {{ render_form(upload_table_form) }}
 <hr>
     {% for msg in get_flashed_messages() %}
