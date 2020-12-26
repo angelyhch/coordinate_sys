@@ -11,6 +11,7 @@ from coordinate_sys.process_model import dbo
 from coordinate_sys.forms import InputPartForm, UploadTableForm
 
 
+
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
 info_table_list_0 = ['jig', 'jig_records', 'part', 'renyuanpeixun', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
@@ -119,3 +120,18 @@ def station(station):
     station_dict = dict(sorted(station_dict.items(), key=lambda x:(x[1].shape[0]), reverse=True))
 
     return render_template('process/station.html', tableView_name_dict=tableView_name_dict, station=station, station_dict=station_dict)
+
+# todo: 待确认pdf输出方式
+'''
+from weasyprint import HTML, CSS
+wsp_html_url = HTML(url='http://127.0.0.1:5000/point_select')
+wsp_html_url.write_pdf('coord.pdf')
+
+html1 = HTML(url='url1')
+html2 = HTML(url='url2')
+pages = []
+pages.extend(html1.render().pages)
+pages.extend(html2.render().pages)
+HTML(string="").render().copy(pages).write_pdf("savefile.pdf")
+
+'''
