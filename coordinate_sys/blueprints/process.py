@@ -15,8 +15,7 @@ process_bp = Blueprint('process', __name__, url_prefix='/process')
 
 info_table_list_0 = ['jig', 'jig_records', 'part', 'renyuanpeixun', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
 info_table_list = [(item+'_view') for item in info_table_list_0]
-
-table_name_dict = {
+info_table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
     'weldspot': '焊点清单表',
@@ -30,7 +29,19 @@ table_name_dict = {
     'shebeilvli': '设备履历表',
     'renyuanpeixun': '人员培训记录'
 }
-tableView_name_dict = dict((item[0]+'_view', item[1]) for item in table_name_dict.items())
+info_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in info_table_name_dict.items())
+
+base_table_list_0 = ['controlplan']
+base_table_list = [(item + '_view') for item in base_table_list_0]
+base_table_name_dict = {
+    "controlplan": "控制计划"
+}
+base_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in base_table_name_dict.items())
+
+# 合并所有表格字典
+all_tableView_dict = {}
+all_tableView_dict.update(info_tableView_name_dict)
+all_tableView_dict.update(base_tableView_name_dict)
 
 
 @process_bp.route('/')
@@ -97,9 +108,9 @@ def info(url):
             return redirect(url_for('process.info', url=url))
     else:
         file_req_view = file_req + '_view'
-        if file_req_view in info_table_list:
+        if file_req_view in all_tableView_dict:
             df = dbo.read_table(file_req_view)
-            table_name = table_name_dict[file_req]
+            table_name = all_tableView_dict[file_req_view]
             df_html = df.to_html()
             return render_template('process/info.html', upload_table_form=upload_table_form, input_part_form=input_part_form, df_html=df_html, table=file_req_view, table_name=table_name)
         else:
@@ -115,7 +126,7 @@ def station(station):
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
         station_dict[table] = df_tb_st
 
-    # 对搜索出来的数据进行排序，最多的数据排在最上面。
+    # 对搜索出的来的数据进行排序，最多数据排在最上面。
     station_dict = dict(sorted(station_dict.items(), key=lambda x:(x[1].shape[0]), reverse=True))
 
-    return render_template('process/station.html', tableView_name_dict=tableView_name_dict, station=station, station_dict=station_dict)
+    return render_template('process/station.html', tableView_name_dict=info_tableView_name_dict, station=station, station_dict=station_dict)
