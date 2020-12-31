@@ -14,7 +14,7 @@ from coordinate_sys.forms import InputPartForm, UploadTableForm
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
 info_table_list_0 = ['jig', 'jig_records', 'part', 'renyuanpeixun', 'weldspot', 'tujiao', 'co2', 'torque', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'muju']
-info_table_list = [(item+'_view') for item in info_table_list_0]
+info_tableView_list = [(item + '_view') for item in info_table_list_0]
 info_table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
@@ -121,12 +121,18 @@ def info(url):
 @cache.cached(query_string=True)
 def station(station):
     station_dict = {}
-    for table in info_table_list:
+    table_column_dict ={}
+    df_cp = dbo.read_table('controlplan_view')
+    df_cp_station_dict = {}
+    for table in info_tableView_list:
+        table_origin_name = table[:-5]
         df_tb = dbo.read_table(table)
         df_tb_st = df_tb.loc[df_tb['station'] == station, ]
+        df_tb_cp_st = df_cp.loc[df_cp['process'] == table_origin_name]
         station_dict[table] = df_tb_st
+        df_cp_station_dict[table] = df_tb_cp_st
 
     # 对搜索出的来的数据进行排序，最多数据排在最上面。
     station_dict = dict(sorted(station_dict.items(), key=lambda x:(x[1].shape[0]), reverse=True))
 
-    return render_template('process/station.html', tableView_name_dict=info_tableView_name_dict, station=station, station_dict=station_dict)
+    return render_template('process/station.html', tableView_name_dict=info_tableView_name_dict, station=station, station_dict=station_dict, df_cp_station_dict=df_cp_station_dict)

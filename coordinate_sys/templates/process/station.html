@@ -51,7 +51,16 @@
 		<tr>
 			<td>{{ tableView_name_dict[tb] }}</td>
 			<td>{{ content.shape[0] }}</td>
-			<td>{{ content.to_html() | safe }}</td>
+			<td>
+				{{ content.to_html() | safe }}
+
+				{% if not (df_cp_station_dict.get(tb).empty or content.shape[0] == 0) %}
+					<hr>
+					<h4>控制计划要求 </h4>
+					{{ df_cp_station_dict.get(tb).to_html() | safe }}
+
+				{% endif %}
+			</td>
 		</tr>
 		{% endfor %}
 	
