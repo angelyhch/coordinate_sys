@@ -31,10 +31,11 @@ info_table_name_dict = {
 }
 info_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in info_table_name_dict.items())
 
-base_table_list_0 = ['controlplan']
+base_table_list_0 = ['controlplan', 'ecn']
 base_table_list = [(item + '_view') for item in base_table_list_0]
 base_table_name_dict = {
-    "controlplan": "控制计划"
+    "controlplan": "控制计划",
+    "ecn": "ECN变更信息"
 }
 base_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in base_table_name_dict.items())
 
