@@ -1,4 +1,4 @@
-from flask import url_for, render_template, Blueprint, request, flash, redirect, current_app
+from flask import url_for, render_template, Blueprint, request, flash, redirect, current_app, send_from_directory
 import qrcode
 import os
 from coordinate_sys.logger_class import logger
@@ -6,7 +6,7 @@ from datetime import datetime
 import base64
 from io import BytesIO
 import numpy as np
-from coordinate_sys.extensions import cache
+from coordinate_sys.extensions import cache, root_path
 from coordinate_sys.process_model import dbo
 from coordinate_sys.forms import InputPartForm, UploadTableForm
 
@@ -65,6 +65,14 @@ def stations():
     return render_template('process/stations.html', qr_img_data=qr_img_data,
                            station_header=station_header, station_list=station_list,
                            station_weight_dict=station_weight_dict)
+
+
+@process_bp.route('/stations/download/<stations_pdf>')
+def download_station_pdf(stations_pdf):
+    #todo: 暂时只下载pdf格式文件
+    filename = stations_pdf + '.pdf'
+    dirpath = os.path.join(root_path, r'static/download')   # 文件存放目录
+    return send_from_directory(dirpath, filename, as_attachment=True)
 
 
 @process_bp.route('/info/<string:url>', methods=['get', 'post'])
