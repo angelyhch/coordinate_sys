@@ -40,7 +40,7 @@ def create_pdf():
 
 
 def one_station_pages(station):
-    pre_url = r"http://127.0.0.1:5000/process/stations/"    #todo: 待删除此列，改为类方法后
+    pre_url = r"http://127.0.0.1:5000/process/stations/"    #todo: 待删除此列，改为类方法以后
     url = pre_url + station
     html = HTML(url=url)
     page_list = html.render().pages
