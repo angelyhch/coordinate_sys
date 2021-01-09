@@ -35,14 +35,14 @@
           <a href="{{ url_for('coordinate.warning_point') }}" target="_blank">异常数据|</a>
     </nav>
         <hr>
-    	<h5>工艺信息系统</h5>
+    	<h5>工位信息系统</h5>
     <nav>
           <a href="{{ url_for('process.stations') }}"><strong>工位清单</strong>|</a>
-          <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具清单表|</a>
+          <a href="{{ url_for('process.info', url='controlplan') }}" target="_blank">控制计划|</a>
           <a href="{{ url_for('process.info', url='part') }}" target="_blank">零件表|</a>
-          <a href="{{ url_for('process.info', url='weldspot') }}" target="_blank">焊点表|</a>
-          <a href="{{ url_for('process.info', url='tujiao') }}" target="_blank">涂胶明细表|</a>
-          <a href="{{ url_for('process.info', url='co2') }}" target="_blank">CO2焊明细表|</a>
+          <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具清单表|</a>
+          <a href="{{ url_for('process.info', url='gudingzichan') }}" target="_blank">固定资产表|</a>
+          <a href="{{ url_for('process.info', url='renyuanpeixun') }}" target="_blank">人员培训表|</a>
 
 	</nav>
 
