@@ -51,7 +51,7 @@ def upload_data():
             flash(f'upload success at {last_modify_time}')
             df = read_excel_data(file_path=full_file_path_name)
             refresh_database(df)
-            return redirect('coordinate/upload_data.html', form=upload_form)
+            return redirect(url_for('coordinate.upload_data'))
         else:
             flash('上传不成功，密码错误了！请输入正确口令！')
             return redirect(url_for('coordinate.upload_data'))
