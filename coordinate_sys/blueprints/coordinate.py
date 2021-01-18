@@ -56,10 +56,13 @@ def upload_data():
             # 上传成功，发送异常波动点邮件
             df_warn = md.warning_point()
             data_html = df_warn.to_html()
-            recievers = ['gz065@baicmotor.com', 'guoyizhong@baicmotor.com', 'zhanglixiang@baicmotor.com',
+            recievers = ['guoyizhong@baicmotor.com', 'zhanglixiang@baicmotor.com',
                          'zhengweikang@baicmotor.com', 'wangdongcheng@baicmotor.com', 'liujun02@baicmotor.com',
-                         'wanqianli@baicmotor.com', 'liuhongwei@baicmotor.com']
-            send_mail(subject='try send_mail',
+                         'wanqianli@baicmotor.com', 'liuhongwei@baicmotor.com','yuhuachang@baicmotor.com','wangkuanding@baicmotor.com',
+                         'fanyanling@baicmotor.com', 'huangyongquan@baicmotor.com', 'shenxiaolong@baicmotor.com',
+                         'liangpeng@baicmotor.com', 'huangxilong@baicmotor.com', 'xieguangjun@baicmotor.com',
+                         'wangweiping@baicmotor.com']
+            send_mail(subject='最新三坐标异常波动点推送',
                       to=recievers,
                       html=render_template('coordinate/warning_point.html', data_html=data_html),
                       body='body')
