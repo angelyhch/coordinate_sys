@@ -1,6 +1,7 @@
 from flask import redirect, Blueprint, url_for, render_template, request, flash, current_app
 from coordinate_sys.forms import UpLoadFileForm
 from coordinate_sys.extensions import cache
+from coordinate_sys.emails import send_mail
 import base64
 import qrcode
 from io import BytesIO
@@ -51,6 +52,18 @@ def upload_data():
             flash(f'upload success at {last_modify_time}')
             df = read_excel_data(file_path=full_file_path_name)
             refresh_database(df)
+
+            # 上传成功，发送异常波动点邮件
+            df_warn = md.warning_point()
+            data_html = df_warn.to_html()
+            recievers = ['gz065@baicmotor.com', 'guoyizhong@baicmotor.com', 'zhanglixiang@baicmotor.com',
+                         'zhengweikang@baicmotor.com', 'wangdongcheng@baicmotor.com', 'liujun02@baicmotor.com',
+                         'wanqianli@baicmotor.com', 'liuhongwei@baicmotor.com']
+            send_mail(subject='try send_mail',
+                      to=recievers,
+                      html=render_template('coordinate/warning_point.html', data_html=data_html),
+                      body='body')
+
             return redirect(url_for('coordinate.upload_data'))
         else:
             flash('上传不成功，密码错误了！请输入正确口令！')
@@ -74,6 +87,8 @@ def chart_fig():
     vin_list = column_head4 + vin_list1
     chart_points = md.point_select(df, point_list=point_select, direction=direction, vin_list=vin_list)
     chart_response = md.chart_select_point(select_points_df=chart_points)
+
+
     return chart_response
 
 

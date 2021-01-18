@@ -11,7 +11,7 @@ class BaseConfig(object):
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.getenv('MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER = ('auto-mail-sender', MAIL_USERNAME)
+    MAIL_DEFAULT_SENDER = ('三坐标异常波动数据推送', MAIL_USERNAME)
 
 
 

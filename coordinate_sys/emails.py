@@ -12,7 +12,7 @@ def _send_async_mail(app, message):
 
 def send_mail(subject, to, html=None, body=None):
     app = current_app._get_current_object()
-    message = Message(subject, recipients=[to])
+    message = Message(subject, recipients=to)
     message.html = html
     message.body = body
     thr = Thread(target=_send_async_mail, args=[app, message])

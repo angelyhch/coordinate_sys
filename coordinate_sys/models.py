@@ -176,7 +176,7 @@ def warning_point(header_cols=4, new_cols=3, old_cols=9):
     cols = df.columns
     df.columns = list(cols[:header_cols]) + [x[:17][-6:] for x in cols[header_cols:]]
     # 近new_cols台 与前old_cols台数据比较
-    df['warn'] = df.apply(
+    df.loc[:, 'warn'] = df.apply(
         lambda x: int(x[header_cols] < min(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
                   int(x[header_cols] > max(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
                   int(x[header_cols+1] < min(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])) +
@@ -186,8 +186,9 @@ def warning_point(header_cols=4, new_cols=3, old_cols=9):
                     , axis=1)
     df_warn1 = df[df['warn'] == 3]
     # 近new_cols台均值与前old_cols台均值差异
-    df_warn1['sort_col'] = df_warn1.apply(lambda x: abs(mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])), axis=1)
-    df_warn1['均值差异'] = df_warn1.apply(lambda x: mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]), axis=1)
+    df_warn1.loc[:, ['sort_col']] = df_warn1.apply(lambda x: abs(mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)])), axis=1)
+    df_warn1.loc[:, ['均值差异']] = df_warn1.apply(lambda x: mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]), axis=1)
+    df_warn1.loc[:, ['均值差异']] = df_warn1.apply(lambda x: mean(x[header_cols:(header_cols+new_cols)]) - mean(x[(header_cols+new_cols):(header_cols+new_cols+old_cols)]), axis=1)
     df_warn2 = df_warn1.sort_values(by=['sort_col'], ascending=False)
 
     temp = df_warn2.pop('均值差异')
