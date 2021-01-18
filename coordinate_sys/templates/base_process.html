@@ -3,7 +3,7 @@
     {% block navbar %}
     <div>
 
-    	<h2>工艺信息系统</h2>
+    	<h2>工位信息系统</h2>
     <nav>
           <a href="{{ url_for('process.stations') }}"><strong>工位清单</strong>|</a>
           <a href="{{ url_for('process.info', url='jig') }}" target="_blank">夹具清单表|</a>
@@ -15,9 +15,12 @@
           <a href="{{ url_for('process.info', url='torque') }}" target="_blank">扭矩明细表|</a>
           <a href="{{ url_for('process.info', url='gongju') }}" target="_blank">工具台账表|</a>
           <a href="{{ url_for('process.info', url='shebeilvli') }}" target="_blank">设备履历表|</a>
+          <a href="{{ url_for('process.info', url='gudingzichan') }}" target="_blank">固定资产表|</a>
           <a href="{{ url_for('process.info', url='renyuanpeixun') }}" target="_blank">人员培训表|</a>
           <a href="{{ url_for('process.info', url='controlplan') }}" target="_blank">控制计划|</a>
           <a href="{{ url_for('process.info', url='ecn') }}" target="_blank">ECN信息|</a>
+          <a href="{{ url_for('process.info', url='guochengshenhe') }}" target="_blank">过程审核记录|</a>
+          <a href="{{ url_for('process.info', url='guowangbuliang') }}" target="_blank">过往不良记录|</a>
 	</nav>
 
 
