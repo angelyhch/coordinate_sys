@@ -14,7 +14,13 @@ from coordinate_sys.forms import InputPartForm, UploadTableForm
 process_bp = Blueprint('process', __name__, url_prefix='/process')
 
 info_table_list_0 = ['jig', 'jig_records', 'part', 'renyuanpeixun', 'weldspot', 'tujiao', 'co2', 'torque', 'gudingzichan', 'shebeilvli', 'daoruyanzhengjilu', 'gongju', 'guochengshenhe', 'guowangbuliang', 'muju']
-info_tableView_list = [(item + '_view') for item in info_table_list_0]
+info_tableView_list0 = [(item + '_view') for item in info_table_list_0]
+#例外新增查询表，不是由原始表直接生成的查询view
+extra_tableView_list = ['anquanzhizhai_station_view']
+info_tableView_list = info_tableView_list0 + extra_tableView_list
+
+
+
 info_table_name_dict = {
     'jig': '夹具清单表',
     'part': '零部件清单表',
@@ -30,15 +36,17 @@ info_table_name_dict = {
     'gudingzichan': '固定资产表',
     'renyuanpeixun': '人员培训记录',
     'guowangbuliang': '过往不良记录',
-    'guochengshenhe': '过程审核记录'
+    'guochengshenhe': '过程审核记录',
+    'anquanzhizhai_station': '过往安全指摘'
 }
 info_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in info_table_name_dict.items())
 
-base_table_list_0 = ['controlplan', 'ecn']
+base_table_list_0 = ['controlplan', 'ecn', 'linetoclass']
 base_table_list = [(item + '_view') for item in base_table_list_0]
 base_table_name_dict = {
     "controlplan": "控制计划",
-    "ecn": "ECN变更信息"
+    "ecn": "ECN变更信息",
+    "linetoclass": "线体班组"
 }
 base_tableView_name_dict = dict((item[0] + '_view', item[1]) for item in base_table_name_dict.items())
 
