@@ -73,9 +73,17 @@ def stations():
     station_header = list(station_table)
     station_list = np.array(station_table).tolist()
 
+    station_summary_df = dbo.read_table('station_summary_view', index_col='station')
+    process_list = ['weldspot', 'tujiao', 'co2', 'torque']
+    process_summary_dict = {}
+    for process in process_list:
+        pro_dict = station_summary_df.loc[:, process].to_dict()
+        process_summary_dict[process] = pro_dict
+
     return render_template('process/stations.html', qr_img_data=qr_img_data,
                            station_header=station_header, station_list=station_list,
-                           station_weight_dict=station_weight_dict)
+                           station_weight_dict=station_weight_dict,
+                           process_summary_dict=process_summary_dict)
 
 
 @process_bp.route('/stations/download/<stations_pdf>')

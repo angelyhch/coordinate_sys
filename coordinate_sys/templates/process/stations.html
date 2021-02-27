@@ -6,7 +6,7 @@
 {% block content %}
 
 
-<a href="{{ url_for('process.download_station_pdf', stations_pdf='stations') }}">工位信息明细下载</a>
+<!--<a href="{{ url_for('process.download_station_pdf', stations_pdf='stations') }}">工位信息明细下载</a>-->
 
 <h2>工位清单表</h2>
 <table border="1">
@@ -17,6 +17,11 @@
 			{% endfor %}
 			<th>工位链接</th>
 			<th>工位权重</th>
+			<th>点焊</th>
+			<th>涂胶</th>
+			<th>co2焊</th>
+			<th>扭矩</th>
+
 		</tr>
 	</thead>
 
@@ -29,6 +34,13 @@
 			{% endfor  %}
 			<td><a href="{{ url_for('process.station', station=row[0]) }}" target="_blank" title="点击查看工位详细内容">{{ row[1] }}</a></td>
 			<td class="text-center "><strong> {{ station_weight_dict[row[0]] }}</strong></td>
+			{% for process in process_summary_dict %}
+				{% if process_summary_dict[process][row[0]] > 0 %}
+					<td class="text-center"> {{ process_summary_dict[process][row[0]] }} </td>
+				{% else %}
+					<td></td>
+				{% endif %}
+			{% endfor %}
 		</tr>
 
 		{% endfor %}
